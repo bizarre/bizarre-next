@@ -4,6 +4,9 @@ import vars from "./contract.css";
 export default createTheme(vars, {
   color: {
     contrast: "#FFF",
+    blue: "#565D80",
+    cyan: "#546E87",
+    purple: "#615780",
     background: {
       primary: "#141316",
     },

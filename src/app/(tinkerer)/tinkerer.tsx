@@ -1,5 +1,5 @@
 import * as styles from "./tinkerer.css";
-import config from "@/config";
+import config, { _app_defs } from "@/config";
 import { Header } from "@/app/app-header/app-header";
 
 export const TinkererPage = () => {
@@ -9,6 +9,8 @@ export const TinkererPage = () => {
         name={config.name}
         pseudonym={config.pseudonym}
         tagline={config.tagline}
+        pages={_app_defs.pages}
+        socials={config.socials}
       />
     </>
   );

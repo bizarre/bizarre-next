@@ -3,6 +3,9 @@ import { createThemeContract } from "@vanilla-extract/css";
 export default createThemeContract({
   color: {
     contrast: "",
+    blue: "",
+    cyan: "",
+    purple: "",
     background: {
       primary: "",
     },

@@ -4,12 +4,15 @@ import vars from "./contract.css";
 export default createTheme(vars, {
   color: {
     contrast: "#000",
+    blue: "#A4A8C1",
+    cyan: "#A1B3C4",
+    purple: "#ABA4C1",
     background: {
       primary: "#E5E3E8",
     },
     text: {
-      primary: "",
-      secondary: "",
+      primary: "#322E38",
+      secondary: "#B0ABBA",
     },
   },
   spacing: {
