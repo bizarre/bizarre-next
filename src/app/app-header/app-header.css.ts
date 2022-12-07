@@ -8,6 +8,7 @@ export const header = styleVariants({
     flexWrap: "wrap",
     fontSize: theme.vars.text.size.lg,
     position: "relative",
+    marginBottom: theme.vars.spacing.lg,
   },
   title: {
     color: theme.vars.color.contrast,

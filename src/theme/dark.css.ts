@@ -25,9 +25,9 @@ export default createTheme(vars, {
   },
   text: {
     size: {
-      xs: "0.5em",
-      sm: "0.75em",
-      md: "1em",
+      xs: "0.6em",
+      sm: "0.8em",
+      md: "1.25em",
       lg: "1.5em",
       xl: "2em",
       xxl: "3em",
