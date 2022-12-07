@@ -24,6 +24,7 @@ export const language = style({
 export const label = style({
   display: "none",
   color: "black",
+  pointerEvents: "none",
   fontSize: theme.vars.text.size.xs,
   selectors: {
     [`${language}:hover &`]: {
@@ -35,15 +36,15 @@ export const label = style({
 export const caption = style({
   width: "100%",
   marginTop: theme.vars.spacing.sm,
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-  gap: theme.vars.spacing.sm,
+  display: "flex",
 });
 
 export const languageLegendItem = style({
   display: "flex",
   alignItems: "flex-start",
   marginTop: theme.vars.spacing.xs,
+  userSelect: "none",
+  marginRight: theme.vars.spacing.xl,
 });
 
 export const languageLegendValue = styleVariants({
@@ -67,5 +68,5 @@ export const languageBlob = style({
   height: theme.vars.spacing.sm,
   content: "",
   borderRadius: "50%",
-  marginTop: "2px",
+  marginTop: "3px",
 });

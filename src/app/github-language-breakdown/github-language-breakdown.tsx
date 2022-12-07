@@ -132,7 +132,7 @@ export const GithubLanguageBreakdownSkeleton = () => {
               <div className={styles.languageLegendValue.container}>
                 <Skeleton
                   className={styles.languageLegendValue.language}
-                  width={"60px"}
+                  width={"47px"}
                   height={"1em"}
                 />
                 <Skeleton

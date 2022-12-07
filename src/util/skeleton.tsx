@@ -1,4 +1,5 @@
 import theme from "@/theme";
+import cs from "classnames";
 
 export const Skeleton = ({
   height,
@@ -18,7 +19,7 @@ export const Skeleton = ({
         height,
         borderRadius,
       }}
-      className={`${theme.skeleton} ${className ? className : ""}`}
+      className={cs(theme.skeleton, className)}
     ></div>
   );
 };

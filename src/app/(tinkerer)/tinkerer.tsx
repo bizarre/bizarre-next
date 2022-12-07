@@ -7,6 +7,7 @@ import {
   GithubLanguageBreakdownSkeleton,
 } from "@app/github-language-breakdown/github-language-breakdown";
 import { Suspense } from "react";
+import { LinkBlock } from "@app/app-link-block/app-link-block";
 
 export const TinkererPage = () => {
   return (
@@ -19,9 +20,17 @@ export const TinkererPage = () => {
         socials={config.socials}
       />
       <TextSection title="about me">{config.about.tech}</TextSection>
-      <Suspense fallback={<GithubLanguageBreakdownSkeleton />}>
-        {/* @ts-expect-error Server Component */}
-        <GithubLanguageBreakdown username={config.github} />
+      <Suspense
+        fallback={
+          <LinkBlock>
+            <GithubLanguageBreakdownSkeleton />
+          </LinkBlock>
+        }
+      >
+        <LinkBlock to="/">
+          {/* @ts-expect-error Server Component */}
+          <GithubLanguageBreakdown username={config.github} />
+        </LinkBlock>
       </Suspense>
     </>
   );
