@@ -13,6 +13,7 @@ export default createTheme(vars, {
     text: {
       primary: "#B0ABBA",
       secondary: "#635C70",
+      dim: "#4A4554",
     },
   },
   spacing: {

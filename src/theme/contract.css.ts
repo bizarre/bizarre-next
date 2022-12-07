@@ -12,6 +12,7 @@ export default createThemeContract({
     text: {
       primary: "",
       secondary: "",
+      dim: ""
     },
   },
   spacing: {

@@ -1,6 +1,7 @@
 const config = {
   name: "Alex Adewole",
   pseudonym: "bizarre",
+  github: "bizarre",
   tagline: "_________ in vancouver.",
   socials: {
     linkedin: "https://www.linkedin.com/in/alexadewole",
@@ -17,6 +18,14 @@ export const _app_defs = {
     { name: "tinkerer", path: "/", color: "#927AC3" },
     { name: "photog", path: "/photog", color: "#7AC3BA" },
     { name: "hoonigan", path: "/hoonigan", color: "#ACC37A" },
+  ],
+  language_filter: [
+    "Rust",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "Kotlin",
   ],
 };
 
