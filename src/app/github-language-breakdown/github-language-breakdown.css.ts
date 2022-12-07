@@ -42,7 +42,7 @@ export const caption = style({
 
 export const languageLegendItem = style({
   display: "flex",
-  alignItems: "baseline",
+  alignItems: "flex-start",
   marginTop: theme.vars.spacing.xs,
 });
 
@@ -67,4 +67,5 @@ export const languageBlob = style({
   height: theme.vars.spacing.sm,
   content: "",
   borderRadius: "50%",
+  marginTop: "2px",
 });

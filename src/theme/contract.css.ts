@@ -12,7 +12,11 @@ export default createThemeContract({
     text: {
       primary: "",
       secondary: "",
-      dim: ""
+      dim: "",
+    },
+    skeleton: {
+      1: "",
+      2: "",
     },
   },
   spacing: {

@@ -15,6 +15,10 @@ export default createTheme(vars, {
       secondary: "#968FA3",
       dim: "#B0ABBA",
     },
+    skeleton: {
+      1: "#CBC7D1",
+      2: "#DAD8DF",
+    },
   },
   spacing: {
     xs: "0.3em",

@@ -1,6 +1,9 @@
 import * as styles from "./github-language-breakdown.css";
 import languageColors from "@/util/language-colors";
 import { _app_defs } from "@/config";
+import { Skeleton } from "@/util/skeleton";
+import classNames from "classnames";
+import theme from "@/theme";
 
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
@@ -24,7 +27,7 @@ const fetchGithubLanguageBreakdown = async (
       });
 
       const repoLanguages = await response.json();
-      
+
       Object.entries(repoLanguages).forEach(([language, bytes]) => {
         if (
           _app_defs.language_filter.includes(language) ||
@@ -111,5 +114,37 @@ export const GithubLanguageBreakdown = async ({
 };
 
 export const GithubLanguageBreakdownSkeleton = () => {
-  return <></>;
+  return (
+    <figure>
+      <div className={styles.languageContainer}>
+        <div
+          className={classNames(styles.language, theme.skeleton)}
+          style={{ width: "100%" }}
+        ></div>
+      </div>
+      <figcaption className={styles.caption}>
+        {[...Array(5)].map((_, i) => {
+          return (
+            <div key={`${i}-legend-item`} className={styles.languageLegendItem}>
+              <span
+                className={classNames(theme.skeleton, styles.languageBlob)}
+              ></span>
+              <div className={styles.languageLegendValue.container}>
+                <Skeleton
+                  className={styles.languageLegendValue.language}
+                  width={"60px"}
+                  height={"1em"}
+                />
+                <Skeleton
+                  className={styles.languageLegendValue.percentage}
+                  width={"25px"}
+                  height={"1em"}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </figcaption>
+    </figure>
+  );
 };
