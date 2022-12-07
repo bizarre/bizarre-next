@@ -4,7 +4,6 @@ import * as styles from "./theme-switcher.css";
 import { useRouter } from "next/navigation";
 import SunFullIcon from "@/assets/icon/sun-f.svg";
 import SunIcon from "@/assets/icon/sun.svg";
-import theme from "@/theme";
 
 type Props = {
   currentTheme: string | undefined;
@@ -29,7 +28,7 @@ export const ThemeSwitcher = ({ currentTheme }: Props) => {
         setTheme(currentTheme === "dark" ? "light" : "dark", router.refresh)
       }
     >
-      {currentTheme === "light" ? <SunFullIcon /> : <SunIcon />}
+      {currentTheme === "light" ? <SunIcon /> : <SunFullIcon />}
     </button>
   );
 };
