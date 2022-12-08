@@ -19,6 +19,13 @@ export default createTheme(vars, {
       1: "#19171C",
       2: "#27252D",
     },
+    github_contributions: {
+      4: "#391AF6",
+      3: "#6954EA",
+      2: "#4934CB",
+      1: "#2C1F7A",
+      0: "#201E24",
+    },
   },
   spacing: {
     xs: "0.3em",

@@ -18,6 +18,13 @@ export default createThemeContract({
       1: "",
       2: "",
     },
+    github_contributions: {
+      4: "",
+      3: "",
+      2: "",
+      1: "",
+      0: "",
+    },
   },
   spacing: {
     xs: "",

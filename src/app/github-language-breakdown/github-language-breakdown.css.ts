@@ -53,7 +53,7 @@ export const languageLegendItem = style({
   alignItems: "flex-start",
   marginTop: theme.vars.spacing.xs,
   userSelect: "none",
-  marginRight: theme.vars.spacing.xl,
+  marginRight: theme.vars.spacing.lg,
 });
 
 export const languageLegendValue = styleVariants({

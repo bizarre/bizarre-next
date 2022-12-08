@@ -9,6 +9,7 @@ export const block = style({
   borderColor: "transparent",
   position: "relative",
   marginTop: theme.vars.spacing.lg,
+  marginBottom: theme.vars.spacing.xl,
   /* @ts-expect-error */
   "-webkit-user-drag": "none",
 });
@@ -16,8 +17,8 @@ export const block = style({
 export const active = style({
   ":after": {
     position: "absolute",
-    top: `calc(${theme.vars.spacing.md} * -1)`,
-    left: `calc(${theme.vars.spacing.md} * -1)`,
+    top: `calc(${theme.vars.spacing.md} * -1 - 2px)`,
+    left: `calc(${theme.vars.spacing.md} * -1 - 2px)`,
     width: `calc(100% + (${theme.vars.spacing.md} * 2))`,
     height: `calc(100% + (${theme.vars.spacing.md} * 2))`,
     content: "''",
@@ -28,12 +29,10 @@ export const active = style({
   },
   ":hover": {
     borderColor: theme.vars.color.text.dim,
-    transform: "scale(1.01)",
   },
 });
 
 export const selected = style({
   borderColor: theme.vars.color.text.dim,
-  transform: "scale(1.01)",
   cursor: "default",
 });

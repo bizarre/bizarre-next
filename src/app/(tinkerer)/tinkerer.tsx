@@ -6,8 +6,10 @@ import {
   GithubLanguageBreakdown,
   GithubLanguageBreakdownSkeleton,
 } from "@app/github-language-breakdown/github-language-breakdown";
+import { GithubContributionChart } from "@app/github-contribution-chart/github-contribution-chart";
 import { Suspense } from "react";
 import { LinkBlock } from "@app/app-link-block/app-link-block";
+import ErrorBoundary from "@/util/error-boundary";
 
 export const TinkererPage = () => {
   return (
@@ -28,8 +30,16 @@ export const TinkererPage = () => {
         }
       >
         <LinkBlock to="/repos">
+          <ErrorBoundary fallback={<GithubLanguageBreakdownSkeleton />}>
+            {/* @ts-expect-error Server Component */}
+            <GithubLanguageBreakdown username={config.github} />
+          </ErrorBoundary>
+        </LinkBlock>
+      </Suspense>
+      <Suspense>
+        <LinkBlock to="/contributions">
           {/* @ts-expect-error Server Component */}
-          <GithubLanguageBreakdown username={config.github} />
+          <GithubContributionChart username={config.github} />
         </LinkBlock>
       </Suspense>
     </>
