@@ -82,6 +82,13 @@ export const GithubContributionChart = async ({
                       y={y + gap * j}
                       rx={borderRadius}
                       ry={borderRadius}
+                      style={{
+                        outline:
+                          item.intensity > 0
+                            ? "1px solid rgba(255, 255, 255, 0.07)"
+                            : "none",
+                        outlineOffset: "-1px",
+                      }}
                       fill={
                         item.date > currentDate
                           ? "none"

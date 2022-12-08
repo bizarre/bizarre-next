@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import theme from "@/theme";
 
 export const button = style([
@@ -14,3 +14,22 @@ export const button = style([
     },
   },
 ]);
+
+export const animation = keyframes({
+  "0%": {
+    transform: "scale(1)",
+    opacity: 0.2,
+  },
+  "100%": {
+    transform: "scale(1.2)",
+    opacity: 0.5,
+  },
+});
+
+export const loading = style({
+  animation: animation,
+  animationDuration: "1s",
+  animationIterationCount: "infinite",
+  animationDirection: "alternate",
+  animationTimingFunction: "linear",
+});
