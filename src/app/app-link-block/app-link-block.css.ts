@@ -30,6 +30,7 @@ export const active = style({
   },
   ":hover": {
     borderColor: theme.vars.color.text.dim,
+    transform: "scale(1.01)",
   },
 });
 
@@ -39,6 +40,7 @@ export const selected = style({
   ":after": {
     opacity: 1,
   },
+  transform: "scale(1.01)",
 });
 
 export const selectedNotReady = style({

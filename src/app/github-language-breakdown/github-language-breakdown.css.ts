@@ -7,6 +7,7 @@ export const languageContainer = style({
   borderRadius: "1em",
   overflow: "hidden",
   width: "100%",
+  transform: "translateZ(0)",
 });
 
 export const language = style({
@@ -25,7 +26,7 @@ export const language = style({
 
 export const label = style({
   opacity: 0,
-  color: "black",
+  color: theme.vars.color.background.primary,
   pointerEvents: "none",
   position: "absolute",
   whiteSpace: "nowrap",

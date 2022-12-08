@@ -23,9 +23,11 @@ export const transitionColor = style({
 const skeletonAnimation = keyframes({
   "0%": {
     backgroundColor: vars.color.skeleton[1],
+    fill: vars.color.skeleton[1],
   },
   "100%": {
     backgroundColor: vars.color.skeleton[2],
+    fill: vars.color.skeleton[2],
   },
 });
 

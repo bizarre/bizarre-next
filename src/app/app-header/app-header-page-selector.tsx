@@ -2,7 +2,6 @@
 
 import * as styles from "./app-header-page-selector.css";
 import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
 import { useTransition } from "react";
 import cs from "classnames";
 

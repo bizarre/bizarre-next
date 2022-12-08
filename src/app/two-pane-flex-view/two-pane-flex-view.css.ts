@@ -5,7 +5,7 @@ export const container = style({
   width: "100vw",
   display: "flex",
   justifyContent: "center",
-  paddingTop: theme.vars.spacing.xxl,
+  paddingTop: theme.vars.spacing.xl,
 });
 
 export const pane = style({

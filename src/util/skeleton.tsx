@@ -5,11 +5,15 @@ export const Skeleton = ({
   height,
   width,
   borderRadius = "3px",
+  marginTop = "0px",
+  marginLeft = "0px",
   className,
 }: {
   height: string;
   width: string;
   borderRadius?: string;
+  marginTop?: string;
+  marginLeft?: string;
   className?: string;
 }) => {
   return (
@@ -18,6 +22,8 @@ export const Skeleton = ({
         width,
         height,
         borderRadius,
+        marginTop,
+        marginLeft,
       }}
       className={cs(theme.skeleton, className)}
     ></div>

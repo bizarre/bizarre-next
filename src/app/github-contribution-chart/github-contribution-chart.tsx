@@ -1,12 +1,16 @@
 import * as styles from "./github-contribution-chart.css";
 import theme from "@/theme";
+import { Skeleton } from "@/util/skeleton";
 
 type Intensity = 4 | 3 | 2 | 1 | 0;
+const size = 8;
+const gap = 2;
+const borderRadius = 1.5;
 
 const getLastDayOfCurrentWeek = () => {
   const today = new Date();
   const day = today.getDay();
-  const diff = today.getDate() - day + 5;
+  const diff = today.getDate() - day + 6;
   return new Date(today.setDate(diff));
 };
 
@@ -49,11 +53,6 @@ export const GithubContributionChart = async ({
 }) => {
   const [contributions, count] = await fetchGithubContributions(username);
   const currentDate = new Date();
-  currentDate.setDate(currentDate.getDate() - 1);
-
-  const size = 8;
-  const gap = 2;
-  const borderRadius = 1.5;
 
   return (
     <>
@@ -96,9 +95,52 @@ export const GithubContributionChart = async ({
                               item.intensity
                             ]
                       }
-                    >
-                      {j}
-                    </rect>
+                    ></rect>
+                  );
+                })}
+              </g>
+            );
+          })}
+        </g>
+      </svg>
+    </>
+  );
+};
+
+export const GithubContributionChartSkeleton = ({
+  renderHeading = true,
+}: {
+  renderHeading?: boolean;
+}) => {
+  return (
+    <>
+      {renderHeading && (
+        <Skeleton
+          height="20px"
+          width="250px"
+          className={styles.heading}
+        ></Skeleton>
+      )}
+      <svg
+        width={"100%"}
+        viewBox={`0 0 ${(size + gap) * 52} ${(size + gap) * 7}`}
+      >
+        <g>
+          {[...Array(52)].map((_, i) => {
+            return (
+              <g key={i} transform={`translate(${(size + gap) * i}, 0)`}>
+                {[...Array(7)].map((_, j) => {
+                  const y = j * size;
+                  return (
+                    <rect
+                      key={(j + 1) * (i + 1)}
+                      width={size}
+                      height={size}
+                      y={y + gap * j}
+                      rx={borderRadius}
+                      ry={borderRadius}
+                      className={theme.skeleton}
+                    ></rect>
                   );
                 })}
               </g>
