@@ -23,7 +23,7 @@ export default async function handler(
   const languageFilter = req.query.languageFilter || [];
 
   const response = await fetch(
-    `https://api.github.com/users/${username}/repos?per_page=${count}&sort=created`,
+    `https://api.github.com/users/${username}/repos?per_page=${count}&sort=pushed`,
     {
       headers: { Authorization: `Bearer ${GITHUB_TOKEN}` },
       next: { revalidate: Infinity },
@@ -36,7 +36,9 @@ export default async function handler(
   await Promise.all(
     repos?.map(async (repo: any) => {
       if (repo.fork) return;
-      if (languageFilter && !languageFilter.includes(repo.language)) return;
+      if (repo.archived) return;
+      if (languageFilter.length > 0 && !languageFilter.includes(repo.language))
+        return;
 
       const response = await fetch(repo.languages_url, {
         headers: { Authorization: `Bearer ${GITHUB_TOKEN}` },
@@ -46,11 +48,7 @@ export default async function handler(
       const repoLanguages = await response.json();
 
       Object.entries(repoLanguages).forEach(([language, bytes]) => {
-        if (
-          !languageFilter ||
-          languageFilter.includes(language) ||
-          languageFilter.length === 0
-        ) {
+        if (languageFilter.length === 0 || languageFilter.includes(language)) {
           languages[language] = (languages[language] || 0) + (bytes as number);
         }
       });

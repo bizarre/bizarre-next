@@ -24,7 +24,7 @@ export const TinkererPage = () => {
       <TextSection title="about me">{config.about.tech}</TextSection>
       <Suspense
         fallback={
-          <LinkBlock>
+          <LinkBlock to="/repos" ready={false}>
             <GithubLanguageBreakdownSkeleton />
           </LinkBlock>
         }

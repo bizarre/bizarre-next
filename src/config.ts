@@ -19,14 +19,7 @@ export const _app_defs = {
     { name: "photog", path: "/photog", color: "#7AC3BA" },
     { name: "hoonigan", path: "/hoonigan", color: "#ACC37A" },
   ],
-  language_filter: [
-    "Rust",
-    "Java",
-    "JavaScript",
-    "TypeScript",
-    "Python",
-    "Kotlin",
-  ],
+  language_filter: [],
 };
 
 export default config;

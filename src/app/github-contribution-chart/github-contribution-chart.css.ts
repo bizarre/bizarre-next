@@ -3,7 +3,7 @@ import theme from "@/theme";
 
 export const heading = style({
   color: theme.vars.color.text.dim,
-  marginBottom: theme.vars.spacing.sm,
+  marginBottom: theme.vars.spacing.md,
   fontSize: theme.vars.text.size.md,
   fontWeight: 500,
 });

@@ -8,16 +8,18 @@ import { useTransition } from "react";
 
 export const LinkBlock = ({
   to,
+  ready = true,
   children,
 }: {
   to?: string;
+  ready?: boolean;
   children: React.ReactNode;
 }) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
 
-  return to ? (
+  return to && ready ? (
     <a
       href={to}
       onClick={(e) => {
@@ -28,13 +30,20 @@ export const LinkBlock = ({
         });
       }}
       className={cs(styles.block, styles.active, {
-        [styles.selected]: to == pathname,
+        [styles.selected]: to === pathname,
         [styles.loading]: isPending,
       })}
     >
       {children}
     </a>
   ) : (
-    <div className={styles.block}>{children}</div>
+    <div
+      className={cs(styles.block, {
+        [styles.active]: to === pathname,
+        [styles.selectedNotReady]: to === pathname,
+      })}
+    >
+      {children}
+    </div>
   );
 };

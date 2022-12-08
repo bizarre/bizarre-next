@@ -45,7 +45,8 @@ export const label = style({
 export const caption = style({
   width: "100%",
   marginTop: theme.vars.spacing.sm,
-  display: "flex",
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
 });
 
 export const languageLegendItem = style({
@@ -78,4 +79,15 @@ export const languageBlob = style({
   content: "",
   borderRadius: "50%",
   marginTop: "3px",
+});
+
+export const heading = style({
+  color: theme.vars.color.text.dim,
+  marginBottom: theme.vars.spacing.md,
+  fontSize: theme.vars.text.size.md,
+  fontWeight: 500,
+});
+
+export const headingFocus = style({
+  color: theme.vars.color.text.secondary,
 });

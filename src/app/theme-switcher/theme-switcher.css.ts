@@ -18,11 +18,11 @@ export const button = style([
 export const animation = keyframes({
   "0%": {
     transform: "scale(1)",
-    opacity: 0.2,
+    opacity: 0.5,
   },
   "100%": {
     transform: "scale(1.2)",
-    opacity: 0.5,
+    opacity: 0.2,
   },
 });
 

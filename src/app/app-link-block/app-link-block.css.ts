@@ -26,6 +26,7 @@ export const active = style({
     borderColor: "inherit",
     borderRadius: theme.vars.spacing.sm,
     pointerEvents: "none",
+    opacity: 0.5,
   },
   ":hover": {
     borderColor: theme.vars.color.text.dim,
@@ -33,6 +34,14 @@ export const active = style({
 });
 
 export const selected = style({
+  borderColor: theme.vars.color.text.dim,
+  cursor: "default",
+  ":after": {
+    opacity: 1,
+  },
+});
+
+export const selectedNotReady = style({
   borderColor: theme.vars.color.text.dim,
   cursor: "default",
 });

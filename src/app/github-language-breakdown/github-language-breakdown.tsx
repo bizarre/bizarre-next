@@ -25,94 +25,120 @@ const fetchGithubLanguageBreakdown = async (
 
 export const GithubLanguageBreakdown = async ({
   username,
-  fetchCount = 50,
+  fetchCount = 5,
+  renderHeading = true,
 }: {
   username: string;
   fetchCount?: number;
+  renderHeading?: boolean;
 }) => {
   const languages = await fetchGithubLanguageBreakdown(username, fetchCount);
 
   return (
-    <figure>
-      <div className={styles.languageContainer}>
-        {languages.map(({ language, percentage }) => {
-          return (
-            <div
-              className={styles.language}
-              key={language}
-              style={{
-                width: `${percentage}%`,
-                background: languageColors[language] || "black",
-              }}
-            >
-              <label className={styles.label}>
-                {language} - {percentage}%
-              </label>
-            </div>
-          );
-        })}
-      </div>
-      <figcaption className={styles.caption}>
-        {languages.map(({ language, percentage }) => {
-          return (
-            <div
-              key={`${language}-legend-item`}
-              className={styles.languageLegendItem}
-            >
-              <span
-                className={styles.languageBlob}
+    <>
+      {renderHeading && (
+        <h1 className={styles.heading}>
+          <strong className={styles.headingFocus}>{languages.length}</strong>{" "}
+          recently used languages
+        </h1>
+      )}
+      <figure>
+        <div className={styles.languageContainer}>
+          {languages.map(({ language, percentage }) => {
+            return (
+              <div
+                className={styles.language}
+                key={language}
                 style={{
+                  width: `${percentage}%`,
                   background: languageColors[language] || "black",
                 }}
-              ></span>
-              <div className={styles.languageLegendValue.container}>
-                <div className={styles.languageLegendValue.language}>
-                  {language}
-                </div>
-                <div className={styles.languageLegendValue.percentage}>
-                  {percentage}%
+              >
+                <label className={styles.label}>
+                  {language} - {percentage}%
+                </label>
+              </div>
+            );
+          })}
+        </div>
+        <figcaption className={styles.caption}>
+          {languages.map(({ language, percentage }) => {
+            return (
+              <div
+                key={`${language}-legend-item`}
+                className={styles.languageLegendItem}
+              >
+                <span
+                  className={styles.languageBlob}
+                  style={{
+                    background: languageColors[language] || "black",
+                  }}
+                ></span>
+                <div className={styles.languageLegendValue.container}>
+                  <div className={styles.languageLegendValue.language}>
+                    {language}
+                  </div>
+                  <div className={styles.languageLegendValue.percentage}>
+                    {percentage}%
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </figcaption>
-    </figure>
+            );
+          })}
+        </figcaption>
+      </figure>
+    </>
   );
 };
 
-export const GithubLanguageBreakdownSkeleton = () => {
+export const GithubLanguageBreakdownSkeleton = ({
+  renderHeading = true,
+}: {
+  renderHeading?: boolean;
+}) => {
   return (
-    <figure>
-      <div className={styles.languageContainer}>
-        <div
-          className={classNames(styles.language, theme.skeleton)}
-          style={{ width: "100%" }}
-        ></div>
-      </div>
-      <figcaption className={styles.caption}>
-        {[...Array(5)].map((_, i) => {
-          return (
-            <div key={`${i}-legend-item`} className={styles.languageLegendItem}>
-              <span
-                className={classNames(theme.skeleton, styles.languageBlob)}
-              ></span>
-              <div className={styles.languageLegendValue.container}>
-                <Skeleton
-                  className={styles.languageLegendValue.language}
-                  width={"47px"}
-                  height={"1em"}
-                />
-                <Skeleton
-                  className={styles.languageLegendValue.percentage}
-                  width={"25px"}
-                  height={"1em"}
-                />
+    <>
+      {renderHeading && (
+        <Skeleton
+          height="20px"
+          width="250px"
+          className={styles.heading}
+        ></Skeleton>
+      )}
+      <figure>
+        <div className={styles.languageContainer}>
+          <div
+            className={classNames(styles.language, theme.skeleton)}
+            style={{ width: "100%" }}
+          ></div>
+        </div>
+        <figcaption className={styles.caption}>
+          {[...Array(5)].map((_, i) => {
+            return (
+              <div
+                key={`${i}-legend-item`}
+                className={styles.languageLegendItem}
+              >
+                <span
+                  className={classNames(theme.skeleton, styles.languageBlob)}
+                ></span>
+                <div className={styles.languageLegendValue.container}>
+                  <Skeleton
+                    className={styles.languageLegendValue.language}
+                    width={"47px"}
+                    height={"1em"}
+                  />
+                  <Skeleton
+                    className={styles.languageLegendValue.percentage}
+                    width={"25px"}
+                    height={"1em"}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </figcaption>
-    </figure>
+            );
+          })}
+        </figcaption>
+      </figure>
+    </>
   );
 };
