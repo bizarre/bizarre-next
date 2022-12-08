@@ -36,3 +36,7 @@ export const selected = style({
   borderColor: theme.vars.color.text.dim,
   cursor: "default",
 });
+
+export const loading = style({
+  opacity: 0.5,
+});

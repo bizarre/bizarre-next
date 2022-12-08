@@ -1,14 +1,18 @@
 "use client";
 
 import * as styles from "./app-header-page-selector.css";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useTransition } from "react";
+import cs from "classnames";
 
 export const PageSelector = ({
   pages,
 }: {
   pages: { name: string; color: string; path: string }[];
 }) => {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
 
   return (
@@ -17,13 +21,24 @@ export const PageSelector = ({
         const underlined = pathname?.startsWith(path);
         return (
           <li key={name}>
-            <Link
+            <a
               href={path}
-              className={underlined ? styles.focus : styles.item}
+              onClick={(e) => {
+                e.preventDefault();
+
+                startTransition(() => {
+                  router.push(path);
+                });
+              }}
+              className={cs(
+                styles.item,
+                { [styles.focus]: underlined },
+                { [styles.loading]: isPending }
+              )}
               style={{ color }}
             >
               {name}
-            </Link>
+            </a>
           </li>
         );
       })}

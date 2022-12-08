@@ -22,8 +22,6 @@ export default async function handler(
   const count = req.query?.count || 50;
   const languageFilter = req.query.languageFilter || [];
 
-  console.log(languageFilter);
-
   const response = await fetch(
     `https://api.github.com/users/${username}/repos?per_page=${count}&sort=created`,
     {
@@ -73,8 +71,6 @@ export default async function handler(
       return acc;
     }, [] as { language: string; percentage: number }[])
     .sort((a, b) => b.percentage - a.percentage);
-
-  console.log(toReturn);
 
   res.status(200).json(toReturn);
 }

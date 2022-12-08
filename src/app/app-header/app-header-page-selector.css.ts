@@ -9,7 +9,7 @@ export const list = style({
 export const item = style({
   marginRight: theme.vars.spacing.xs,
   fontSize: theme.vars.text.size.sm,
-  textDecoration: "none", 
+  textDecoration: "none",
   fontWeight: 400,
   cursor: "pointer",
   transition: "opacity 0.2s",
@@ -24,3 +24,7 @@ export const focus = style([
     textDecoration: "underline",
   },
 ]);
+
+export const loading = style({
+  opacity: 0.3,
+});
