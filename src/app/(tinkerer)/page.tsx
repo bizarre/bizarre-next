@@ -3,5 +3,5 @@ import config from "@/config";
 import { TwoPaneFlexView } from "../two-pane-flex-view/two-pane-flex-view";
 
 export default function Home() {
-  return <div key={"page"}></div>;
+  return <div></div>;
 }

@@ -16,11 +16,14 @@ export const content = style({
   maxWidth: "0px",
   opacity: 0,
   transition: "max-width 1s, opacity 1s",
-  transform: "translateZ(0)",
   marginLeft: theme.vars.spacing.lg,
 });
 
 export const contentExpanded = style({
   opacity: 1,
   maxWidth: "500px",
+});
+
+globalStyle(`${content} > *`, {
+  minWidth: "500px",
 });
