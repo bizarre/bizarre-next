@@ -10,12 +10,13 @@ export const container = style({
 
 export const pane = style({
   width: "500px",
+  transform: "translateZ(0)",
 });
 
 export const content = style({
   maxWidth: "0px",
   opacity: 0,
-  transition: "max-width 1s, opacity 1s",
+  transition: "max-width 0.5s, opacity 1s",
   marginLeft: theme.vars.spacing.lg,
 });
 

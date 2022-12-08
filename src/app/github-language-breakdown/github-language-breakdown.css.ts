@@ -14,7 +14,9 @@ export const language = style({
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
-  transition: "all 2s",
+  position: "relative",
+  minWidth: "0px",
+  transition: "min-width 0.2s",
   ":hover": {
     minWidth: "50%",
     cursor: "pointer",
@@ -22,13 +24,20 @@ export const language = style({
 });
 
 export const label = style({
-  display: "none",
+  opacity: 0,
   color: "black",
   pointerEvents: "none",
+  position: "absolute",
+  whiteSpace: "nowrap",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
   fontSize: theme.vars.text.size.xs,
+  transition: "opacity 0.1s ease",
   selectors: {
     [`${language}:hover &`]: {
-      display: "block",
+      opacity: 1,
+      transition: "opacity 0.2s ease",
     },
   },
 });
