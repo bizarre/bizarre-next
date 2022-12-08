@@ -27,7 +27,7 @@ export const TinkererPage = () => {
           </LinkBlock>
         }
       >
-        <LinkBlock to="/">
+        <LinkBlock to="/repos">
           {/* @ts-expect-error Server Component */}
           <GithubLanguageBreakdown username={config.github} />
         </LinkBlock>

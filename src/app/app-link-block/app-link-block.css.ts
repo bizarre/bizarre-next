@@ -31,3 +31,9 @@ export const active = style({
     transform: "scale(1.01)",
   },
 });
+
+export const selected = style({
+  borderColor: theme.vars.color.text.dim,
+  transform: "scale(1.01)",
+  cursor: "default",
+});

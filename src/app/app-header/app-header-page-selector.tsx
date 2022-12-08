@@ -18,7 +18,6 @@ export const PageSelector = ({
         return (
           <li key={name}>
             <Link
-              prefetch={false}
               href={path}
               className={underlined ? styles.focus : styles.item}
               style={{ color }}
