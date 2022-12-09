@@ -118,7 +118,7 @@ export const GithubContributionChartSkeleton = ({
     <>
       {renderHeading && (
         <Skeleton
-          height="20px"
+          height={theme.vars.text.size.md }
           width="250px"
           className={styles.heading}
         ></Skeleton>

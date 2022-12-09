@@ -37,7 +37,7 @@ export const TinkererPage = () => {
             <LinkBlock to="/repositories" ready={false}>
               <GithubLanguageBreakdownSkeleton />
             </LinkBlock>
-            <LinkBlock to="/contributions" ready={false}>
+            <LinkBlock to="/activity" ready={false}>
               <GithubContributionChartSkeleton />
             </LinkBlock>
             {config.repos.map((repo) => {
@@ -64,7 +64,7 @@ export const TinkererPage = () => {
             <GithubLanguageBreakdown username={config.github} />
           </ErrorBoundary>
         </LinkBlock>
-        <LinkBlock to="/contributions">
+        <LinkBlock to="/activity">
           {/* @ts-expect-error Server Component */}
           <GithubContributionChart username={config.github} />
         </LinkBlock>

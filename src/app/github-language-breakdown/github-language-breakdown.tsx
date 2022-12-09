@@ -126,12 +126,12 @@ export const GithubLanguageBreakdownSkeleton = ({
                   <Skeleton
                     className={styles.languageLegendValue.language}
                     width={"47px"}
-                    height={"1em"}
+                    height={theme.vars.text.size.sm}
                   />
                   <Skeleton
                     className={styles.languageLegendValue.percentage}
                     width={"25px"}
-                    height={"1em"}
+                    height={"0.8em"}
                   />
                 </div>
               </div>

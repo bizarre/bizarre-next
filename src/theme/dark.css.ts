@@ -9,6 +9,7 @@ export default createTheme(vars, {
     purple: "#615780",
     background: {
       primary: "#141316",
+      dark: "#0C0B0E",
     },
     text: {
       primary: "#968FA3",

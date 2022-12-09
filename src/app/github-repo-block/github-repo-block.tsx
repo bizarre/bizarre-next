@@ -9,7 +9,15 @@ import theme from "@/theme";
 
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
-const getGithubRepository = async (owner: string, repository: string) => {
+const getGithubRepository = async (
+  owner: string,
+  repository: string,
+  loadedRepository: any
+) => {
+  if (loadedRepository) {
+    return loadedRepository;
+  }
+
   const response = await fetch(
     `https://api.github.com/repos/${owner}/${repository}`,
     { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
@@ -22,11 +30,13 @@ const getGithubRepository = async (owner: string, repository: string) => {
 export const GithubRepoBlock = async ({
   owner,
   repository,
+  loadedRepository,
 }: {
   owner: string;
   repository: string;
+  loadedRepository?: any;
 }) => {
-  const repo = await getGithubRepository(owner, repository);
+  const repo = await getGithubRepository(owner, repository, loadedRepository);
 
   return (
     <div>
@@ -79,7 +89,7 @@ export const GithubRepoBlockSkeleton = () => {
     <div>
       <header className={styles.header}>
         <div className={styles.title}>
-          <Skeleton height="1em" width="150px"></Skeleton>
+          <Skeleton height={theme.vars.text.size.md} width="150px"></Skeleton>
         </div>
         <ul className={styles.topics}>
           {[...new Array(2)].map((i) => {
@@ -87,7 +97,7 @@ export const GithubRepoBlockSkeleton = () => {
               <Skeleton
                 key={`${i}-topic`}
                 height="20px"
-                width="40px"
+                width="50px"
                 borderRadius="1em"
                 marginLeft={theme.vars.spacing.sm}
               ></Skeleton>
@@ -96,7 +106,7 @@ export const GithubRepoBlockSkeleton = () => {
         </ul>
       </header>
       <summary className={styles.description}>
-        <Skeleton height="0.8em" width="350px"></Skeleton>
+        <Skeleton height="14px" width="350px"></Skeleton>
       </summary>
       <footer className={styles.footer}>
         <div className={styles.language.container}>
@@ -105,7 +115,7 @@ export const GithubRepoBlockSkeleton = () => {
         </div>
         <ul className={styles.stats}>
           <li>
-            <Skeleton height="14px" width="3    0px"></Skeleton>
+            <Skeleton height="14px" width="30px"></Skeleton>
           </li>
           <li>
             <Skeleton height="14px" width="30px"></Skeleton>
