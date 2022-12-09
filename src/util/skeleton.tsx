@@ -5,8 +5,8 @@ export const Skeleton = ({
   height,
   width,
   borderRadius = "3px",
-  marginTop = "0px",
-  marginLeft = "0px",
+  marginTop = "",
+  marginLeft = "",
   className,
 }: {
   height: string;

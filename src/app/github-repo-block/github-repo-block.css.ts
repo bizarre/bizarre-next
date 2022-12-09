@@ -78,4 +78,5 @@ export const topic = style({
   background: theme.vars.color.github_contributions[1],
   color: theme.vars.color.github_contributions[3],
   borderRadius: theme.vars.spacing.md,
+  fontWeight: 500,
 });

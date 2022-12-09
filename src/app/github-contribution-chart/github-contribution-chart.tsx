@@ -10,8 +10,10 @@ const borderRadius = 1.5;
 const getLastDayOfCurrentWeek = () => {
   const today = new Date();
   const day = today.getDay();
-  const diff = today.getDate() - day + 6;
-  return new Date(today.setDate(diff));
+  const diff = today.getDate() - day;
+  const sixth = diff + 5;
+
+  return new Date(today.setDate(sixth));
 };
 
 const fetchGithubContributions = async (

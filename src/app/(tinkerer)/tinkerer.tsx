@@ -33,9 +33,29 @@ export const TinkererPage = () => {
       </LinkBlock>
       <Suspense
         fallback={
-          <LinkBlock to="/repos" ready={false}>
-            <GithubLanguageBreakdownSkeleton />
-          </LinkBlock>
+          <>
+            <LinkBlock to="/repositories" ready={false}>
+              <GithubLanguageBreakdownSkeleton />
+            </LinkBlock>
+            <LinkBlock to="/contributions" ready={false}>
+              <GithubContributionChartSkeleton />
+            </LinkBlock>
+            {config.repos.map((repo) => {
+              const owner = repo.includes("/")
+                ? repo.split("/")[0]
+                : config.github;
+              const repository = repo.includes("/") ? repo.split("/")[1] : repo;
+
+              return (
+                <LinkBlock
+                  key={repo}
+                  to={`repositories/${owner}/${repository}`}
+                >
+                  <GithubRepoBlockSkeleton />
+                </LinkBlock>
+              );
+            })}
+          </>
         }
       >
         <LinkBlock to="/repositories">
@@ -44,36 +64,22 @@ export const TinkererPage = () => {
             <GithubLanguageBreakdown username={config.github} />
           </ErrorBoundary>
         </LinkBlock>
-      </Suspense>
-      <Suspense fallback={<GithubContributionChartSkeleton />}>
         <LinkBlock to="/contributions">
           {/* @ts-expect-error Server Component */}
           <GithubContributionChart username={config.github} />
         </LinkBlock>
-      </Suspense>
-      {config.repos.map((repo) => {
-        const owner = repo.includes("/") ? repo.split("/")[0] : config.github;
-        const repository = repo.includes("/") ? repo.split("/")[1] : repo;
+        {config.repos.map((repo) => {
+          const owner = repo.includes("/") ? repo.split("/")[0] : config.github;
+          const repository = repo.includes("/") ? repo.split("/")[1] : repo;
 
-        return (
-          <Suspense
-            key={repo}
-            fallback={
-              <LinkBlock
-                to={`repositories/${owner}/${repository}`}
-                ready={false}
-              >
-                <GithubRepoBlockSkeleton />
-              </LinkBlock>
-            }
-          >
-            <LinkBlock to={`repositories/${owner}/${repository}`}>
+          return (
+            <LinkBlock key={repo} to={`repositories/${owner}/${repository}`}>
               {/* @ts-expect-error Server Component */}
               <GithubRepoBlock owner={owner} repository={repository} />
             </LinkBlock>
-          </Suspense>
-        );
-      })}
+          );
+        })}
+      </Suspense>
     </>
   );
 };

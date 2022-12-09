@@ -46,6 +46,9 @@ export const selected = style({
 export const selectedNotReady = style({
   borderColor: theme.vars.color.text.dim,
   cursor: "default",
+  ":hover": {
+    transform: "none",
+  },
 });
 
 export const loading = style({

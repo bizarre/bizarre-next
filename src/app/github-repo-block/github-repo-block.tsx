@@ -97,11 +97,6 @@ export const GithubRepoBlockSkeleton = () => {
       </header>
       <summary className={styles.description}>
         <Skeleton height="0.8em" width="350px"></Skeleton>
-        <Skeleton
-          height="0.8em"
-          width="250px"
-          marginTop={theme.vars.spacing.xs}
-        ></Skeleton>
       </summary>
       <footer className={styles.footer}>
         <div className={styles.language.container}>

@@ -39,7 +39,7 @@ export default createTheme(vars, {
     size: {
       xs: "0.6em",
       sm: "0.8em",
-      md: "1.25em",
+      md: "1em",
       lg: "1.5em",
       xl: "2em",
       xxl: "3em",

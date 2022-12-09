@@ -17,7 +17,7 @@ export const content = style({
   maxWidth: "0px",
   opacity: 0,
   transition: "max-width 0.5s, opacity 1s",
-  marginLeft: theme.vars.spacing.lg,
+  marginLeft: theme.vars.spacing.xxl,
 });
 
 export const contentExpanded = style({

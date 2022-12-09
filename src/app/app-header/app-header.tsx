@@ -23,10 +23,8 @@ export const Header = ({
 }) => {
   return (
     <header className={styles.header.container}>
-      <h1 className={styles.header.title}>{name.toLocaleLowerCase()}</h1>
-      <h2 className={styles.header.subtitle}>
-        &nbsp;/{pseudonym.toLocaleLowerCase()}
-      </h2>
+      <h1 className={styles.header.title}>{name}</h1>
+      <h2 className={styles.header.subtitle}>&nbsp;/{pseudonym}</h2>
       <h2 className={styles.header.tagline}>{tagline}</h2>
       <PageSelector pages={pages} />
 

@@ -6,5 +6,6 @@ export const body = style([
   {
     background: vars.color.background.primary,
     color: vars.color.text.primary,
+    overflowX: "hidden",
   },
 ]);

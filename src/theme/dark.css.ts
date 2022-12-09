@@ -11,7 +11,7 @@ export default createTheme(vars, {
       primary: "#141316",
     },
     text: {
-      primary: "#B0ABBA",
+      primary: "#968FA3",
       secondary: "#635C70",
       dim: "#4A4554",
     },
