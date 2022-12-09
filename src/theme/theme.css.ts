@@ -2,12 +2,12 @@ import { style, styleVariants, keyframes } from "@vanilla-extract/css";
 import vars from "./contract.css";
 
 const buttonBase = style({
-  background: "none",
   border: "none",
   cursor: "pointer",
 });
 
 export const button = styleVariants({
+  base: [buttonBase],
   link: [
     buttonBase,
     {

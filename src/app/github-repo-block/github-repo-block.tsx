@@ -42,7 +42,7 @@ export const GithubRepoBlock = async ({
     <div>
       <header className={styles.header}>
         <div className={styles.title}>
-          <BookmarkIcon />
+          <BookmarkIcon width="1.2em" />
           &nbsp;
           <label>
             {owner}/<span className={styles.headerRepo}>{repository}</span>

@@ -5,8 +5,7 @@ import {
   GithubRepoBlockSkeleton,
 } from "@app/github-repo-block/github-repo-block";
 
-const PER_PAGE = 5;
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+const PER_PAGE = 6;
 
 type Repo = {
   full_name: string;
@@ -14,26 +13,10 @@ type Repo = {
   name: string;
 };
 
-const fetchGithubRepositories = async (
-  query: string,
-  owner: string,
-  pageSize: number = PER_PAGE
-): Promise<{ amount: number; repos: Repo[] }> => {
-  const response = await fetch(
-    `https://api.github.com/search/repositories?q=${query}+user:${owner}&per_page=${pageSize}&sort=updated`,
-    { headers: { Authorization: `Bearer ${GITHUB_TOKEN}` } }
-  );
-  const data = await response.json();
-
-  return { amount: data.total_count, repos: data.items };
-};
-
-export const RepositoryList = async ({ query }: { query: string }) => {
-  let { amount, repos } = await fetchGithubRepositories(query, config.github);
-
+export const RepositoryList = async ({ repos }: { repos: Repo[] }) => {
   return (
     <div>
-      {repos.map((repo) => {
+      {repos.slice(0, PER_PAGE).map((repo) => {
         return (
           <LinkBlock
             to={`/repositories/${repo.owner.login}/${repo.name}`}

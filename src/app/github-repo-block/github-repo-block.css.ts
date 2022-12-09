@@ -16,16 +16,18 @@ export const headerRepo = style({
 export const title = style({
   display: "flex",
   alignItems: "center",
+  fontSize: "1em",
 });
 
 export const description = style({
-  fontSize: "14px",
+  fontSize: "0.9em",
   marginTop: theme.vars.spacing.sm,
   lineHeight: "18px",
 });
 
 export const footer = style({
   marginTop: theme.vars.spacing.sm,
+  paddingTop: "4px",
   display: "flex",
   justifyContent: "space-between",
   fontSize: "12px",

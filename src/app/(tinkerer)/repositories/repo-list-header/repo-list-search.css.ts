@@ -9,9 +9,12 @@ export const input = style({
   outline: "none",
   borderRadius: "8px",
   border: "1px solid transparent",
-  transition: "border-color 0.2s",
+  transition: "border-color 0.1s",
   "::placeholder": {
     color: theme.vars.color.text.dim,
+  },
+  ":hover": {
+    borderColor: theme.vars.color.background.dim,
   },
   ":focus": {
     borderColor: theme.vars.color.text.dim,

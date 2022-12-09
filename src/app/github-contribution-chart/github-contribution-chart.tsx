@@ -10,7 +10,7 @@ const borderRadius = 1.5;
 const getLastDayOfCurrentWeek = () => {
   const today = new Date();
   const day = today.getDay();
-  const diff = today.getDate() - day;
+  const diff = today.getDate() - day + 1;
   const sixth = diff + 5;
 
   return new Date(today.setDate(sixth));
@@ -118,7 +118,7 @@ export const GithubContributionChartSkeleton = ({
     <>
       {renderHeading && (
         <Skeleton
-          height={theme.vars.text.size.md }
+          height={theme.vars.text.size.md}
           width="250px"
           className={styles.heading}
         ></Skeleton>

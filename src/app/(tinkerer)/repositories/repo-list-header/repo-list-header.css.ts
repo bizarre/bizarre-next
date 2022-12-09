@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import theme from "@/theme";
 
 export const heading = style({
@@ -7,3 +7,9 @@ export const heading = style({
   color: theme.vars.color.text.secondary,
   marginBottom: theme.vars.spacing.sm,
 });
+
+export const toolbar = style({
+  display: "flex",
+});
+
+globalStyle(`${toolbar} > *`, { marginRight: theme.vars.spacing.sm });

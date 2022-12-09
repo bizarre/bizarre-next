@@ -8,6 +8,7 @@ export default createThemeContract({
     purple: "",
     background: {
       primary: "",
+      dim: "",
       dark: "",
     },
     text: {
