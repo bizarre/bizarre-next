@@ -6,6 +6,7 @@ export const item = style({
   alignItems: "center",
   transition: "color 0.2s",
   width: "100%",
+  userSelect: "none",
 });
 
 export const selected = style({
@@ -27,7 +28,7 @@ export const blob = style({
   },
 });
 
-const spin = keyframes({
+export const spin = keyframes({
   "0%": { transform: "rotate(0deg)" },
   "100%": { transform: "rotate(360deg)" },
 });

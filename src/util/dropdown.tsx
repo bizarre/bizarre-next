@@ -27,24 +27,22 @@ export const Dropdown = <T,>({
         <span>{text}</span> <CaretIcon className={styles.caret} />
       </button>
       {expanded && (
-        <>
-          <div
-            className={styles.blanket}
-            onClick={() => setExpanded(false)}
-          ></div>
-          <div className={styles.dropdown} style={{ minWidth }}>
-            {options.map(({ element, value, key }) => (
-              <div
-                key={key}
-                className={styles.dropdownItem}
-                onClick={() => onSelect(value)}
-              >
-                {element}
-              </div>
-            ))}
-          </div>
-        </>
+        <div
+          className={styles.blanket}
+          onClick={() => setExpanded(false)}
+        ></div>
       )}
+      <div className={cs(styles.dropdown, { [styles.hidden]: !expanded })} style={{ minWidth }}>
+        {options.map(({ element, value, key }) => (
+          <div
+            key={key}
+            className={styles.dropdownItem}
+            onClick={() => onSelect(value)}
+          >
+            {element}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

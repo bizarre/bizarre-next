@@ -42,6 +42,7 @@ export const dropdown = style({
   zIndex: 99,
   paddingTop: theme.vars.spacing.sm,
   paddingBottom: theme.vars.spacing.sm,
+  transition: "opacity 0.2s",
 });
 
 export const dropdownItem = style({
@@ -67,4 +68,9 @@ export const blanket = style({
   height: "100vh",
   left: 0,
   top: 0,
+});
+
+export const hidden = style({
+  pointerEvents: "none",
+  opacity: 0,
 });

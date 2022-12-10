@@ -10,6 +10,13 @@ import CloseIcon from "@/assets/icon/close.svg";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import theme from "@/theme";
 
+// @ts-ignore
+import sync from "css-animation-sync";
+
+if (typeof window !== "undefined") {
+  sync(styles.spin);
+}
+
 export const RepositoryLanguageItem = ({
   language,
   modifying,
@@ -48,18 +55,25 @@ export const RepositoryLanguageItem = ({
 
 export const RepositoryLanguageButtonContent = ({
   selectedLanguages,
+  modifying,
 }: {
   selectedLanguages: string[];
+  modifying: string[];
 }) => {
   return (
     <ul className={styles.selectedButtonContent}>
-      {selectedLanguages.map((i) => (
-        <li
-          key={i}
-          className={styles.blob}
-          style={{ background: languageColors[i] }}
-        ></li>
-      ))}
+      {selectedLanguages.map((i) => {
+        const color = languageColors[i] || theme.vars.color.text.dim;
+        return modifying.includes(i) ? (
+          <SpinnerIcon key={i} className={styles.spinner} style={{ color }} />
+        ) : (
+          <li
+            key={i}
+            className={styles.blob}
+            style={{ background: languageColors[i] }}
+          ></li>
+        );
+      })}
     </ul>
   );
 };
@@ -79,16 +93,32 @@ export const RepositoryListLanguageFilter = ({
   const router = useRouter();
   const pathname = usePathname();
   const query = useSearchParams();
+
+  const mixedSelected = [
+    ...selectedLanguages,
+    ...queued.filter((i) => i.action === "add").map((i) => i.language),
+  ].filter(
+    (i) => !queued.some((j) => j.language === i && j.action === "remove")
+  );
+
   const text =
-    selectedLanguages.length === 0 ? (
+    mixedSelected.length === 0 ? (
       <span className={styles.emptyButtonContent}>Language</span>
     ) : (
-      <RepositoryLanguageButtonContent selectedLanguages={selectedLanguages} />
+      <RepositoryLanguageButtonContent
+        selectedLanguages={mixedSelected}
+        modifying={modifying}
+      />
     );
 
   const sortedLanguages = [
-    ...selectedLanguages,
-    ...languages.filter((i) => !selectedLanguages.includes(i)),
+    ...mixedSelected,
+    ...languages.filter(
+      (i) => !mixedSelected.includes(i) && modifying.includes(i)
+    ),
+    ...languages.filter(
+      (i) => !mixedSelected.includes(i) && !modifying.includes(i)
+    ),
   ];
 
   return (
@@ -100,13 +130,17 @@ export const RepositoryListLanguageFilter = ({
           <RepositoryLanguageItem
             language={language}
             modifying={modifying.includes(language)}
-            selected={selectedLanguages.includes(language)}
+            selected={mixedSelected.includes(language)}
           />
         ),
         value: language,
         key: language,
       }))}
       onSelect={(language) => {
+        if (queued.some((i) => i.language === language)) {
+          return;
+        }
+
         setModifying([...modifying, language]);
 
         let newQueued: QueuedAction[];
