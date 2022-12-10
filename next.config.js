@@ -5,6 +5,7 @@ const withVanillaExtract = createVanillaExtractPlugin({ identifiers: "short" });
 const nextConfig = {
   experimental: {
     appDir: true,
+    fetchCache: true,
   },
   webpack(config) {
     config.module.rules.push({

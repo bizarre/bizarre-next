@@ -5,16 +5,21 @@ import { RepositoryListSearch } from "./repo-list-search";
 export const RepositoryListHeader = ({
   query,
   languages,
+  selectedLanguages,
 }: {
   query: string;
-  languages: (string | null)[];
+  languages: string[];
+  selectedLanguages: string[];
 }) => {
   return (
     <header>
       <h1 className={styles.heading}>open source repositories</h1>
       <div className={styles.toolbar}>
         <RepositoryListSearch initialQuery={query} />
-        <RepositoryListLanguageFilter languages={languages} />
+        <RepositoryListLanguageFilter
+          languages={languages}
+          selectedLanguages={selectedLanguages}
+        />
       </div>
     </header>
   );

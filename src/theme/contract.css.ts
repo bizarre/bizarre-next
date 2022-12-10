@@ -10,6 +10,7 @@ export default createThemeContract({
       primary: "",
       dim: "",
       dark: "",
+      menu: "",
     },
     text: {
       primary: "",

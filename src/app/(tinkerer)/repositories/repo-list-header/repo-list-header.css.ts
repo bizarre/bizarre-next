@@ -10,6 +10,7 @@ export const heading = style({
 
 export const toolbar = style({
   display: "flex",
+  alignItems: "center",
 });
 
 globalStyle(`${toolbar} > *`, { marginRight: theme.vars.spacing.sm });

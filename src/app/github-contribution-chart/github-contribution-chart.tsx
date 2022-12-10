@@ -9,6 +9,7 @@ const borderRadius = 1.5;
 
 const getLastDayOfCurrentWeek = () => {
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
   const day = today.getDay();
   const diff = today.getDate() - day + 1;
   const sixth = diff + 5;

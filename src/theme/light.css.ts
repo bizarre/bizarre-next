@@ -9,8 +9,9 @@ export default createTheme(vars, {
     purple: "#ABA4C1",
     background: {
       primary: "#E5E3E8",
-      dim: "#000",
+      dim: "#DAD8DF",
       dark: "#D8D5DD",
+      menu: "#D8D5DD",
     },
     text: {
       primary: "#635C70",

@@ -17,8 +17,8 @@ export const block = style({
 export const active = style({
   ":after": {
     position: "absolute",
-    top: `calc(${theme.vars.spacing.md} * -1 - 2px)`,
-    left: `calc(${theme.vars.spacing.md} * -1 - 2px)`,
+    top: `calc(${theme.vars.spacing.md} * -1)`,
+    left: `calc(${theme.vars.spacing.md} * -1)`,
     width: `calc(100% + (${theme.vars.spacing.md} * 2))`,
     height: `calc(100% + (${theme.vars.spacing.md} * 2))`,
     content: "''",

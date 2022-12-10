@@ -5,7 +5,7 @@ import {
   GithubRepoBlockSkeleton,
 } from "@app/github-repo-block/github-repo-block";
 
-const PER_PAGE = 6;
+const PER_PAGE = 5;
 
 type Repo = {
   full_name: string;

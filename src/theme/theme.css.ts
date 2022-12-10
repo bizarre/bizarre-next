@@ -1,9 +1,21 @@
-import { style, styleVariants, keyframes } from "@vanilla-extract/css";
+import {
+  style,
+  styleVariants,
+  keyframes,
+  globalStyle,
+} from "@vanilla-extract/css";
 import vars from "./contract.css";
+
+globalStyle("button", {
+  padding: "0",
+  margin: "0",
+});
 
 const buttonBase = style({
   border: "none",
   cursor: "pointer",
+  display: "flex",
+  justifyContent: "center",
 });
 
 export const button = styleVariants({

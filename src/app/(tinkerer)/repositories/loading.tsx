@@ -11,7 +11,11 @@ export default async function Loading({
 
   return (
     <section className={styles.page}>
-      <RepositoryListHeader query={query} languages={[]} />
+      <RepositoryListHeader
+        query={query}
+        languages={[]}
+        selectedLanguages={[]}
+      />
       <RepositoryListSkeleton />
     </section>
   );

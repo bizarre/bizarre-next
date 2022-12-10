@@ -11,6 +11,7 @@ export default createTheme(vars, {
       primary: "#141316",
       dim: "#1D1B22",
       dark: "#0C0B0E",
+      menu: "#0C0B0E",
     },
     text: {
       primary: "#968FA3",
