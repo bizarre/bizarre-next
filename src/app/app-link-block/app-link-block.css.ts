@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import theme from "@/theme";
 
 export const block = style({
@@ -12,6 +12,23 @@ export const block = style({
   marginBottom: theme.vars.spacing.xl,
   /* @ts-expect-error */
   "-webkit-user-drag": "none",
+});
+
+const pulse = keyframes({
+  "0%": {
+    opacity: 0.3,
+  },
+  "100%": {
+    opacity: 0.75,
+  },
+});
+
+export const loading = style({
+  animationName: pulse,
+  animationDuration: "1s",
+  animationIterationCount: "infinite",
+  animationTimingFunction: "linear",
+  borderColor: theme.vars.color.text.dim,
 });
 
 export const active = style({
@@ -28,9 +45,11 @@ export const active = style({
     pointerEvents: "none",
     opacity: 0.5,
   },
-  ":hover": {
-    borderColor: theme.vars.color.text.dim,
-    transform: "scale(1.01)",
+  selectors: {
+    [`&:not(${loading}):hover`]: {
+      borderColor: theme.vars.color.text.dim,
+      transform: "scale(1.01)",
+    },
   },
 });
 
@@ -49,10 +68,6 @@ export const selectedNotReady = style({
   ":hover": {
     transform: "none",
   },
-});
-
-export const loading = style({
-  opacity: 0.3,
 });
 
 export const wrapper = style({
