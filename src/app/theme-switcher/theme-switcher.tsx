@@ -11,15 +11,6 @@ type Props = {
   currentTheme: string | undefined;
 };
 
-async function setTheme(theme: string, refresh: () => void) {
-  await fetch(`/api/theme`, {
-    method: "POST",
-    body: JSON.stringify({ theme }),
-  });
-
-  refresh();
-}
-
 export const ThemeSwitcher = ({ currentTheme }: Props) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -29,9 +20,16 @@ export const ThemeSwitcher = ({ currentTheme }: Props) => {
       className={cs(styles.button, { [styles.loading]: isPending })}
       onClick={() =>
         !isPending &&
-        setTheme(currentTheme === "dark" ? "light" : "dark", () =>
-          startTransition(() => router.refresh())
-        )
+        fetch(`/api/theme`, {
+          method: "POST",
+          body: JSON.stringify({
+            theme: currentTheme === "dark" ? "light" : "dark",
+          }),
+        }).then(() => {
+          startTransition(() => {
+            router.refresh();
+          });
+        })
       }
     >
       {currentTheme === "light" ? <SunIcon /> : <SunFullIcon />}

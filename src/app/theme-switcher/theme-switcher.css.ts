@@ -1,28 +1,14 @@
 import { keyframes, style } from "@vanilla-extract/css";
 import theme from "@/theme";
 
-export const button = style([
-  theme.button.link,
-  {
-    color: theme.vars.color.text.secondary,
-    position: "fixed",
-    right: theme.vars.spacing.xl,
-    top: theme.vars.spacing.xl,
-    transition: "opacity 0.2s",
-    ":hover": {
-      opacity: 0.5,
-    },
-  },
-]);
-
 export const animation = keyframes({
   "0%": {
     transform: "scale(1)",
-    opacity: 0.5,
+    opacity: 0.2,
   },
   "100%": {
-    transform: "scale(1.2)",
-    opacity: 0.2,
+    transform: "scale(1.3)",
+    opacity: 0.4,
   },
 });
 
@@ -33,3 +19,20 @@ export const loading = style({
   animationDirection: "alternate",
   animationTimingFunction: "linear",
 });
+
+export const button = style([
+  theme.button.link,
+  {
+    color: theme.vars.color.text.secondary,
+    position: "fixed",
+    right: theme.vars.spacing.xl,
+    top: theme.vars.spacing.xl,
+    selectors: {
+      [`&:not(${loading}):hover`]: {
+        opacity: 0.75,
+        transition: "opacity 0.2s, transform 0.2s",
+        transform: "scale(1.2)",
+      },
+    },
+  },
+]);
