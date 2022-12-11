@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { ThemeSwitcher } from "./theme-switcher/theme-switcher";
 import theme from "@/theme";
 
-const inter = Inter();
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
