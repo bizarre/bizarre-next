@@ -4,6 +4,7 @@ import { _app_defs } from "@/config";
 import { Skeleton } from "@/util/skeleton";
 import classNames from "classnames";
 import theme from "@/theme";
+import Link from "next/link";
 
 const fetchGithubLanguageBreakdown = async (
   username: string,
@@ -46,7 +47,8 @@ export const GithubLanguageBreakdown = async ({
         <div className={styles.languageContainer}>
           {languages.map(({ language, percentage }) => {
             return (
-              <div
+              <Link
+                href={`/repositories?l=${language}`}
                 className={styles.language}
                 key={language}
                 style={{
@@ -57,7 +59,7 @@ export const GithubLanguageBreakdown = async ({
                 <label className={styles.label}>
                   {language} - {percentage}%
                 </label>
-              </div>
+              </Link>
             );
           })}
         </div>

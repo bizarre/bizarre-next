@@ -5,7 +5,8 @@ import { RepositoryListSkeleton } from "./repo-list/repo-list";
 export default async function Loading({}) {
   return (
     <section className={styles.page}>
-      <RepositoryListHeader query={""} languages={[]} selectedLanguages={[]} />
+      {/* @ts-expect-error Server Component */}
+      <RepositoryListHeader query={""} selectedLanguages={[]} />
       <RepositoryListSkeleton />
     </section>
   );

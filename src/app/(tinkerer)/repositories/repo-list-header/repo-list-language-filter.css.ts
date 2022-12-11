@@ -7,6 +7,7 @@ export const item = style({
   transition: "color 0.2s",
   width: "100%",
   userSelect: "none",
+  fontWeight: 500,
 });
 
 export const selected = style({
@@ -28,16 +29,11 @@ export const blob = style({
   },
 });
 
-export const spin = keyframes({
-  "0%": { transform: "rotate(0deg)" },
-  "100%": { transform: "rotate(360deg)" },
-});
-
 export const modifying = style({});
 
 export const spinner = style({
   marginRight: theme.vars.spacing.sm,
-  animation: spin,
+  animation: theme.spin,
   animationDuration: "1s",
   animationIterationCount: "infinite",
   animationTimingFunction: "linear",

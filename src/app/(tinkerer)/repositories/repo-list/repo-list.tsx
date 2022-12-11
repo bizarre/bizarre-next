@@ -1,11 +1,13 @@
-import config from "@/config";
+import { getChainedURLSearchParams } from "@/util/util";
 import { LinkBlock } from "@app/app-link-block/app-link-block";
 import {
   GithubRepoBlock,
   GithubRepoBlockSkeleton,
 } from "@app/github-repo-block/github-repo-block";
+import Link from "next/link";
+import cs from "classnames";
 
-const PER_PAGE = 5;
+export const PER_PAGE = 5;
 
 type Repo = {
   full_name: string;
@@ -13,10 +15,20 @@ type Repo = {
   name: string;
 };
 
-export const RepositoryList = async ({ repos }: { repos: Repo[] }) => {
+export const RepositoryList = async ({
+  repos,
+  page,
+  searchParams,
+}: {
+  repos: Repo[];
+  page: number;
+  searchParams: { [key: string]: string | string[] };
+}) => {
+  const start = (page - 1) * PER_PAGE;
+
   return (
-    <div>
-      {repos.slice(0, PER_PAGE).map((repo) => {
+    <div style={{ minHeight: "490px" }}>
+      {repos.slice(start, start + PER_PAGE).map((repo) => {
         return (
           <LinkBlock
             to={`/repositories/${repo.owner.login}/${repo.name}`}

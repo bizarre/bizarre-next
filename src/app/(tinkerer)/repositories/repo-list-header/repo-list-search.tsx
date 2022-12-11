@@ -1,10 +1,11 @@
 "use client";
 
 import * as styles from "./repo-list-search.css";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 import SearchIcon from "@/assets/icon/search.svg";
 import SpinnerIcon from "@/assets/icon/spinner.svg";
+import { getChainedURLSearchParams } from "@/util/util";
 
 export const RepositoryListSearch = ({
   initialQuery,
@@ -15,11 +16,15 @@ export const RepositoryListSearch = ({
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
+  const query = useSearchParams();
+  const chained = getChainedURLSearchParams(new URLSearchParams(query));
 
   const onChange = (value: string) => {
     setSearch(value);
     startTransition(() => {
-      router.push(`${pathname}?q=${value}`);
+      chained.delete("q");
+      chained.append("q", value);
+      router.push(`${pathname}?${chained.toString()}`);
     });
   };
 

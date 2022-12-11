@@ -6,96 +6,41 @@ import { RepositoryList, RepositoryListSkeleton } from "./repo-list/repo-list";
 import { Suspense } from "react";
 import config from "@/config";
 import { cache } from "react";
-
-const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
-const GITHUB_PAGE_SIZE = 100;
-
-type Repo = {
-  full_name: string;
-  owner: { login: string };
-  name: string;
-  language: string;
-  description: string;
-  topics: string[];
-  fork: boolean;
-};
-
-const fetchAllGithubRepositories = cache(
-  async (query: string, owner: string, page: number = 1): Promise<Repo[]> => {
-    const repos = [];
-
-    const response = await fetch(
-      `https://api.github.com/users/${owner}/repos?per_page=${GITHUB_PAGE_SIZE}&page=${page}&sort=updated`,
-      {
-        headers: { Authorization: `Bearer ${GITHUB_TOKEN}` },
-        cache: "force-cache",
-        // infinite cache so that we don't re-fetch
-        next: { revalidate: Infinity },
-      }
-    );
-
-    const data = await response.json();
-
-    repos.push(...(data || []));
-
-    if (repos.length === GITHUB_PAGE_SIZE) {
-      const nextPage = await fetchAllGithubRepositories(query, owner, page + 1);
-
-      repos.push(...nextPage);
-    }
-
-    return repos.filter((r) => !r.fork);
-  }
-);
+import {
+  fetchAllGithubRepositories,
+  getFilteredGitHubReposAndLanguages,
+} from "@/util/github";
+import { randomUUID } from "crypto";
+import Repositories from "./container";
+import { RepositoryContextWrapper } from "./context";
+import { RepositoryListPaginator } from "./repo-list/repo-list-paginator";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: { [key: string]: string | string[] };
 }) {
   const query = searchParams?.q?.toString()?.toLowerCase() || "";
   const selectedLanguages = [...new Set([searchParams?.l || []].flat())];
-  let repos = await fetchAllGithubRepositories(query, config.github);
-
-  repos = repos.filter((repo) => {
-    return (
-      !query ||
-      (repo.name?.toLowerCase() || "").includes(query) ||
-      (repo.full_name.toLowerCase() || "").includes(query) ||
-      (repo.description?.toLowerCase() || "").includes(query) ||
-      (repo.topics?.join(" ")?.toLowerCase() || "").includes(query) ||
-      (repo.language?.toLowerCase() || "").includes(query)
-    );
-  });
-
-  const languages = repos
-    .map((r) => r.language)
-    .reduce((acc: string[], i: string) => {
-      if (!acc.includes(i) && i) {
-        acc.push(i);
-      }
-
-      return acc;
-    }, []);
-
-  repos = repos.filter((repo) => {
-    return (
-      selectedLanguages.length === 0 ||
-      selectedLanguages.includes(repo.language)
-    );
-  });
+  const page = parseInt(searchParams?.page?.toString() || "1");
 
   return (
     <section className={styles.page}>
-      <RepositoryListHeader
-        query={query}
-        languages={languages}
-        selectedLanguages={selectedLanguages}
-      />
-      {/* @ts-expect-error Server Component */}
-      <RepositoryList repos={repos} />
+      <RepositoryContextWrapper>
+        {/* @ts-expect-error Server Component */}
+        <RepositoryListHeader
+          query={query}
+          selectedLanguages={selectedLanguages}
+        />
+        <Suspense
+          key={JSON.stringify(searchParams)}
+          fallback={<RepositoryListSkeleton />}
+        >
+          {/* @ts-expect-error Server Component */}
+          <Repositories searchParams={searchParams} />
+        </Suspense>
+        <RepositoryListPaginator page={page} searchParams={searchParams} />
+      </RepositoryContextWrapper>
     </section>
   );
 }
-
-export const revalidate = Infinity;

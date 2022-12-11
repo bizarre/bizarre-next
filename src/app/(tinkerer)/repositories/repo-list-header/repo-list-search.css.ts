@@ -36,17 +36,8 @@ export const icon = style({
   transform: "translate(-25%, -50%)",
 });
 
-const spin = keyframes({
-  "0%": {
-    transform: "rotate(0deg)",
-  },
-  "100%": {
-    transform: "rotate(360deg)",
-  },
-});
-
 export const spinner = style({
-  animationName: spin,
+  animationName: theme.spin,
   animationDuration: "1s",
   animationIterationCount: "infinite",
   animationTimingFunction: "linear",

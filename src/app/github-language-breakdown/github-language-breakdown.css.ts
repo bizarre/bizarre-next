@@ -16,12 +16,14 @@ export const language = style({
   alignItems: "center",
   height: "100%",
   position: "relative",
+  zIndex: 99,
   minWidth: "0px",
   transition: "min-width 0.2s",
   ":hover": {
     minWidth: "50%",
     cursor: "pointer",
   },
+  pointerEvents: "all",
 });
 
 export const label = style({

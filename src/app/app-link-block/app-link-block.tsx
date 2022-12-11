@@ -3,27 +3,56 @@
 import Link from "next/link";
 import * as styles from "./app-link-block.css";
 import cs from "classnames";
-import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React, { useTransition } from "react";
 
 export const LinkBlock = ({
   to,
   ready = true,
   children,
+  refresh = false,
 }: {
   to?: string;
   ready?: boolean;
   children: React.ReactNode;
+  refresh?: boolean;
 }) => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
 
+  const Wrapper = ({
+    children,
+    className,
+    onClick,
+    href,
+  }: {
+    children: React.ReactNode;
+    className: string;
+    onClick: React.MouseEventHandler;
+    href: string;
+  }) => (
+    <div className={cs(className, styles.wrapper)}>
+      <>
+        <div {...{ onClick, href }} className={styles.link}></div>
+        {children}
+      </>
+    </div>
+  );
+
   return to && ready ? (
-    <a
+    <Wrapper
       href={to}
       onClick={(e) => {
         e.preventDefault();
+
+        if (to === pathname) {
+          return;
+        }
+
+        if (refresh) {
+          router.refresh();
+        }
 
         startTransition(() => {
           router.push(to);
@@ -35,7 +64,7 @@ export const LinkBlock = ({
       })}
     >
       {children}
-    </a>
+    </Wrapper>
   ) : (
     <div
       className={cs(styles.block, {

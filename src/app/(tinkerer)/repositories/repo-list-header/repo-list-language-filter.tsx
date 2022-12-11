@@ -3,7 +3,7 @@
 import * as styles from "./repo-list-language-filter.css";
 import { Dropdown } from "@/util/dropdown";
 import languageColors from "@/util/language-colors";
-import { useEffect, useState, useTransition } from "react";
+import { useContext, useEffect, useState, useTransition } from "react";
 import cs from "classnames";
 import SpinnerIcon from "@/assets/icon/spinner.svg";
 import CloseIcon from "@/assets/icon/close.svg";
@@ -12,9 +12,10 @@ import theme from "@/theme";
 
 // @ts-ignore
 import sync from "css-animation-sync";
+import { RepoContext } from "../context";
 
 if (typeof window !== "undefined") {
-  sync(styles.spin);
+  sync(theme.spin);
 }
 
 export const RepositoryLanguageItem = ({
@@ -81,12 +82,11 @@ export const RepositoryLanguageButtonContent = ({
 type QueuedAction = { language: string; action: "add" | "remove" };
 
 export const RepositoryListLanguageFilter = ({
-  languages,
   selectedLanguages,
 }: {
-  languages: string[];
   selectedLanguages: string[];
 }) => {
+  const { languages } = useContext(RepoContext) || { languages: [] };
   const [modifying, setModifying] = useState<string[]>([]);
   const [queued, setQueued] = useState<QueuedAction[]>([]);
   const [, startTransition] = useTransition();
@@ -153,37 +153,25 @@ export const RepositoryListLanguageFilter = ({
         setQueued(newQueued);
 
         startTransition(() => {
-          const languageQuery = query
-            .getAll("l")
-            .filter(
-              (i) =>
-                !newQueued
-                  .filter((i) => i.action === "remove")
-                  .map((i) => i.language)
-                  .includes(i)
-            )
-            .reduce((acc, i) => {
-              return acc + `&l=${i}`;
-            }, "");
+          const q = new URLSearchParams(query);
 
-          const oldQuery = [...query.keys()]
-            .filter((i) => i !== "l")
-            .map((i) => {
-              console.log(i);
-              return { q: query.getAll(i), k: i };
-            })
-            .reduce((acc, { q, k }) => {
-              return acc + q.map((i) => `&${k}=${i}`).join("");
-            }, "");
+          q.delete("l");
+          q.delete("page");
+          q.append("page", "1");
 
-          router.replace(
-            `${pathname}?${oldQuery}&${new URLSearchParams(
-              languageQuery
-            ).toString()}${newQueued
+          [
+            ...selectedLanguages.filter(
+              (l) =>
+                !newQueued.some(
+                  (i) => i.language === l && i.action === "remove"
+                )
+            ),
+            ...newQueued
               .filter((i) => i.action === "add")
-              .map((i) => `&l=${i.language}`)
-              .join("")}`
-          );
+              .map((i) => i.language),
+          ].forEach((i) => q.append("l", i));
+
+          router.replace(`${pathname}?${q.toString()}`);
 
           setModifying(
             modifying.filter(

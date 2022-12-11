@@ -20,6 +20,9 @@ export const button = style([
     ":hover": {
       borderColor: theme.vars.color.text.dim,
     },
+    ":active": {
+      borderColor: theme.vars.color.text.dim,
+    },
   },
 ]);
 
@@ -36,13 +39,18 @@ export const dropdown = style({
   bottom: `calc(${theme.vars.spacing.sm} * -1)`,
   transform: "translateY(100%)",
   background: theme.vars.color.background.menu,
+  border: "1px solid transparent",
   borderRadius: "8px",
   minWidth: "100%",
   right: 0,
   zIndex: 99,
   paddingTop: theme.vars.spacing.sm,
   paddingBottom: theme.vars.spacing.sm,
-  transition: "opacity 0.2s",
+  transition: "opacity 0.2s, border-color 0.2s",
+  ":hover": {
+    borderColor: theme.vars.color.background.dim,
+  },
+  boxShadow: "1px 2px 3px 3px rgba(0, 0, 0, 0.1)",
 });
 
 export const dropdownItem = style({
