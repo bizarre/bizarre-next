@@ -52,7 +52,7 @@ export const selectedNotReady = style({
 });
 
 export const loading = style({
-  opacity: 0.5,
+  opacity: 0.3,
 });
 
 export const wrapper = style({

@@ -6,6 +6,25 @@ import cs from "classnames";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useTransition } from "react";
 
+const Wrapper = ({
+  children,
+  className,
+  onClick,
+  href,
+}: {
+  children: React.ReactNode;
+  className: string;
+  onClick: React.MouseEventHandler;
+  href: string;
+}) => (
+  <div className={cs(className, styles.wrapper)}>
+    <>
+      <Link {...{ onClick, href }} className={styles.link}></Link>
+      {children}
+    </>
+  </div>
+);
+
 export const LinkBlock = ({
   to,
   ready = true,
@@ -21,27 +40,9 @@ export const LinkBlock = ({
   const router = useRouter();
   const pathname = usePathname();
 
-  const Wrapper = ({
-    children,
-    className,
-    onClick,
-    href,
-  }: {
-    children: React.ReactNode;
-    className: string;
-    onClick: React.MouseEventHandler;
-    href: string;
-  }) => (
-    <div className={cs(className, styles.wrapper)}>
-      <>
-        <div {...{ onClick, href }} className={styles.link}></div>
-        {children}
-      </>
-    </div>
-  );
-
   return to && ready ? (
     <Wrapper
+      key={to}
       href={to}
       onClick={(e) => {
         e.preventDefault();
