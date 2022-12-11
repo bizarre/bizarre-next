@@ -28,6 +28,7 @@ export const loading = style({
   animationDuration: "1s",
   animationIterationCount: "infinite",
   animationTimingFunction: "linear",
+  animationDirection: "alternate",
   borderColor: theme.vars.color.text.dim,
 });
 
