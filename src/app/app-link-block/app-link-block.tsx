@@ -50,12 +50,12 @@ export const LinkBlock = ({
           return;
         }
 
-        if (refresh) {
-          router.refresh();
-        }
-
         startTransition(() => {
           router.push(to);
+
+          if (refresh) {
+            router.refresh();
+          }
         });
       }}
       className={cs(styles.block, styles.active, {

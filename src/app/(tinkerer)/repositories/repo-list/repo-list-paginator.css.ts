@@ -19,8 +19,9 @@ export const pageButtonActive = style({});
 
 export const pageButtonDot = style({
   display: "block",
-  width: theme.vars.spacing.sm,
-  height: theme.vars.spacing.sm,
+  fontSize: "10px",
+  width: theme.vars.spacing.md,
+  height: theme.vars.spacing.md,
   background: theme.vars.color.background.dim,
   border: "1px solid transparent",
   borderRadius: "100%",
