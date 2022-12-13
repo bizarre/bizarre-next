@@ -9,7 +9,7 @@ export const container = style({
 });
 
 export const pane = style({
-  width: "500px",
+  width: "550px",
   transform: "translateZ(0)",
 });
 
@@ -17,14 +17,14 @@ export const content = style({
   maxWidth: "0px",
   opacity: 0,
   transition: "max-width 0.5s, opacity 1s",
-  marginLeft: theme.vars.spacing.xxl,
 });
 
 export const contentExpanded = style({
   opacity: 1,
-  maxWidth: "500px",
+  maxWidth: "550px",
+  marginLeft: theme.vars.spacing.xxl,
 });
 
 globalStyle(`${content} > *`, {
-  minWidth: "500px",
+  minWidth: "550px",
 });

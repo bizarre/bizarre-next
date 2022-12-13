@@ -27,6 +27,7 @@ export const button = style([
 ]);
 
 export const noCaret = style({
+  fontSize: "11px",
   padding: theme.vars.spacing.xs,
   paddingLeft: theme.vars.spacing.sm,
   paddingRight: theme.vars.spacing.sm,

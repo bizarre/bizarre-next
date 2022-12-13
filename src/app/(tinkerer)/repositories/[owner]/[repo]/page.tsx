@@ -45,8 +45,8 @@ export default async function Page({
   return (
     <div>
       <RepositoryHeader repo={repository} />
+      <h2 className={styles.readmeHeading}>README.md</h2>
       <div className={styles.content}>
-        <h2 className={styles.readmeHeading}>README.md</h2>
         <div
           className={markdown}
           dangerouslySetInnerHTML={{ __html: linksRewritten }}

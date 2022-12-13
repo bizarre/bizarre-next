@@ -6,6 +6,8 @@ export const item = style({
   fontWeight: 500,
   alignItems: "center",
   minWidth: "200px",
+  color: "inherit",
+  textDecoration: "none",
 });
 
 export const icon = style({

@@ -23,6 +23,7 @@ export const titleRepo = style({
 export const description = style({
   minWidth: "100%",
   marginTop: theme.vars.spacing.md,
+  lineHeight: "20px",
 });
 
 export const stats = style({

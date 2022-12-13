@@ -13,6 +13,17 @@ globalStyle(`${markdown} h1`, {
   color: theme.vars.color.text.secondary,
 });
 
+globalStyle(`${markdown} h2`, {
+  marginBottom: theme.vars.spacing.md,
+  fontSize: theme.vars.text.size.md,
+  fontWeight: 600,
+  color: theme.vars.color.text.secondary,
+});
+
+globalStyle(`${markdown} svg.octicon-link`, {
+  display: "none",
+});
+
 globalStyle(`${markdown} p`, {
   marginBottom: theme.vars.spacing.md,
 });
@@ -65,4 +76,5 @@ globalStyle(`${markdown} pre`, {
   marginBottom: theme.vars.spacing.md,
   color: theme.vars.color.text.secondary,
   fontFamily: "monospace",
+  overflowX: "scroll",
 });

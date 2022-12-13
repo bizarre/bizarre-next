@@ -24,6 +24,7 @@ export const RepositoryListSearch = ({
     startTransition(() => {
       chained.delete("q");
       chained.append("q", value);
+      chained.delete("page");
       router.push(`${pathname}?${chained.toString()}`);
     });
   };
