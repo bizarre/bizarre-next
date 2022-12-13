@@ -12,11 +12,13 @@ export default createTheme(vars, {
       dim: "#DAD8DF",
       dark: "#D8D5DD",
       menu: "#D8D5DD",
+      pre: "#111014",
     },
     text: {
       primary: "#635C70",
       secondary: "#968FA3",
       dim: "#B0ABBA",
+      link: "#5687D1",
     },
     skeleton: {
       1: "#CBC7D1",

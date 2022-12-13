@@ -11,11 +11,13 @@ export default createThemeContract({
       dim: "",
       dark: "",
       menu: "",
+      pre: ""
     },
     text: {
       primary: "",
       secondary: "",
       dim: "",
+      link: "",
     },
     skeleton: {
       1: "",

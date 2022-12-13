@@ -4,7 +4,7 @@ import "server-only";
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 const GITHUB_PAGE_SIZE = 100;
 
-type Repo = {
+export type Repo = {
   full_name: string;
   owner: { login: string };
   name: string;
@@ -17,6 +17,7 @@ type Repo = {
   updated_at: string;
   pushed_at: string;
   created_at: string;
+  default_branch: string;
 };
 
 export const fetchAllGithubRepositories = cache(

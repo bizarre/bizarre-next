@@ -11,12 +11,14 @@ export const Dropdown = <T,>({
   onSelect,
   minWidth,
   caret,
+  renderCaret = true,
 }: {
   onSelect: (value: T) => void;
   text: React.ReactNode;
   options: { element: React.ReactNode; value: T; key: string }[];
   minWidth?: string;
   caret?: React.ReactNode;
+  renderCaret?: boolean;
 }) => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -42,13 +44,17 @@ export const Dropdown = <T,>({
   return (
     <div className={styles.container}>
       <button
-        className={cs(styles.button, { [styles.buttonExpanded]: expanded })}
+        className={cs(styles.button, {
+          [styles.buttonExpanded]: expanded,
+          [styles.noCaret]: !renderCaret,
+        })}
         onClick={() => setExpanded(!expanded)}
       >
         <span>{text}</span>{" "}
-        {(caret && <span className={styles.caret}>{caret}</span>) || (
-          <CaretIcon className={styles.caret} />
-        )}
+        {renderCaret &&
+          ((caret && <span className={styles.caret}>{caret}</span>) || (
+            <CaretIcon className={styles.caret} />
+          ))}
       </button>
       <div
         className={cs(styles.dropdown, { [styles.hidden]: !expanded })}

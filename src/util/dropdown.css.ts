@@ -26,6 +26,12 @@ export const button = style([
   },
 ]);
 
+export const noCaret = style({
+  padding: theme.vars.spacing.xs,
+  paddingLeft: theme.vars.spacing.sm,
+  paddingRight: theme.vars.spacing.sm,
+});
+
 export const buttonExpanded = style({
   borderColor: theme.vars.color.text.dim,
 });
@@ -70,7 +76,6 @@ export const caret = style({
   right: theme.vars.spacing.sm,
   display: "flex",
   alignItems: "center",
-  
 });
 
 export const hidden = style({
