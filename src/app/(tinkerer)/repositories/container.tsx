@@ -24,6 +24,8 @@ export default async function Page({
   const query = searchParams?.q?.toString()?.toLowerCase() || "";
   const selectedLanguages = [...new Set([searchParams?.l || []].flat())];
   const page = parseInt(searchParams?.page?.toString() || "1");
+  const sort = searchParams?.sort?.toString();
+  const sortOrder = searchParams?.order?.toString() || "desc";
 
   let [repos, languages] = getFilteredGitHubReposAndLanguages(
     await fetchAllGithubRepositories(config.github),
@@ -36,6 +38,45 @@ export default async function Page({
       selectedLanguages.includes(repo.language)
     );
   });
+
+  if (sort) {
+    switch (sort) {
+      case "stars":
+        repos = repos.sort((a, b) => {
+          return (
+            (b.stargazers_count - a.stargazers_count) *
+            (sortOrder === "asc" ? -1 : 1)
+          );
+        });
+        break;
+      case "forks":
+        repos = repos.sort((a, b) => {
+          return (
+            (b.forks_count - a.forks_count) * (sortOrder === "asc" ? -1 : 1)
+          );
+        });
+        break;
+      case "updated":
+        repos = repos.sort((a, b) => {
+          return (
+            (new Date(b.updated_at).getTime() +
+              new Date(b.pushed_at).getTime() -
+              new Date(a.updated_at).getTime() +
+              new Date(a.pushed_at).getTime()) *
+            (sortOrder === "asc" ? -1 : 1)
+          );
+        });
+        break;
+      case "created":
+        repos = repos.sort((a, b) => {
+          return (
+            (new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()) *
+            (sortOrder === "asc" ? -1 : 1)
+          );
+        });
+    }
+  }
 
   const totalPages = Math.ceil(repos.length / PER_PAGE);
 

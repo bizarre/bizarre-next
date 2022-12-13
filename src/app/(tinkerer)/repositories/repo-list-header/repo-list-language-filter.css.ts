@@ -62,10 +62,11 @@ export const selectedButtonContent = style({
   alignItems: "center",
   fontSize: "14px",
   minHeight: "17px",
-  minWidth: "65px",
+  minWidth: "70px",
 });
 
 export const emptyButtonContent = style({
-  minWidth: "65px",
+  minWidth: "70px",
   display: "block",
+  textAlign: "left",
 });

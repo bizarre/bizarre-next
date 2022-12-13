@@ -10,7 +10,7 @@ const config = {
     twitter: "https://twitter.com/bizurre",
   },
   about: {
-    tech: "I enjoy building and creating products that solve complex problems and deliver value to users. I'm always looking for exciting opportunities to tinker and experiment, whether it's building a new product from scratch or improving upon an existing one.",
+    tech: "started programming when i was like 10 cuz my dad wouldnt buy me the robux i needed to get my roblox dude some sneakers so i learned lua and wrote them fuckers in",
   },
 };
 

@@ -2,7 +2,7 @@
 
 import * as styles from "./dropdown.css";
 import CaretIcon from "@/assets/icon/caret.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import cs from "classnames";
 
 export const Dropdown = <T,>({
@@ -10,13 +10,34 @@ export const Dropdown = <T,>({
   text,
   onSelect,
   minWidth,
+  caret,
 }: {
   onSelect: (value: T) => void;
   text: React.ReactNode;
   options: { element: React.ReactNode; value: T; key: string }[];
   minWidth?: string;
+  caret?: React.ReactNode;
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let handler: (e: MouseEvent) => void;
+
+    if (ref.current && expanded) {
+      handler = (e: MouseEvent) => {
+        if (!ref.current?.contains(e.target as Element)) {
+          setExpanded(false);
+        }
+      };
+
+      document.addEventListener("click", handler);
+    }
+
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  }, [ref, expanded, setExpanded]);
 
   return (
     <div className={styles.container}>
@@ -24,15 +45,16 @@ export const Dropdown = <T,>({
         className={cs(styles.button, { [styles.buttonExpanded]: expanded })}
         onClick={() => setExpanded(!expanded)}
       >
-        <span>{text}</span> <CaretIcon className={styles.caret} />
+        <span>{text}</span>{" "}
+        {(caret && <span className={styles.caret}>{caret}</span>) || (
+          <CaretIcon className={styles.caret} />
+        )}
       </button>
-      {expanded && (
-        <div
-          className={styles.blanket}
-          onClick={() => setExpanded(false)}
-        ></div>
-      )}
-      <div className={cs(styles.dropdown, { [styles.hidden]: !expanded })} style={{ minWidth }}>
+      <div
+        className={cs(styles.dropdown, { [styles.hidden]: !expanded })}
+        style={{ minWidth }}
+        ref={ref}
+      >
         {options.map(({ element, value, key }) => (
           <div
             key={key}

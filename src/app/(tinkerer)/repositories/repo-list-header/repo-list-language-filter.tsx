@@ -103,7 +103,7 @@ export const RepositoryListLanguageFilter = ({
 
   const text =
     mixedSelected.length === 0 ? (
-      <span className={styles.emptyButtonContent}>Language</span>
+      <span className={styles.emptyButtonContent}>Filter</span>
     ) : (
       <RepositoryLanguageButtonContent
         selectedLanguages={mixedSelected}

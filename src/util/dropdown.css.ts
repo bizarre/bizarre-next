@@ -68,14 +68,9 @@ export const dropdownItem = style({
 export const caret = style({
   position: "absolute",
   right: theme.vars.spacing.sm,
-});
-
-export const blanket = style({
-  position: "fixed",
-  width: "100vw",
-  height: "100vh",
-  left: 0,
-  top: 0,
+  display: "flex",
+  alignItems: "center",
+  
 });
 
 export const hidden = style({

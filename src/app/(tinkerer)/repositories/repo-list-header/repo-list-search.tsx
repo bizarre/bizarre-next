@@ -39,7 +39,7 @@ export const RepositoryListSearch = ({
       </span>
       <input
         className={styles.input}
-        placeholder="Search"
+        placeholder="Search for a repository..."
         value={search}
         onChange={(e) => onChange(e.target.value)}
       ></input>

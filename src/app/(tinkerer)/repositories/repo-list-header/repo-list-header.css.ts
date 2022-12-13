@@ -13,4 +13,6 @@ export const toolbar = style({
   alignItems: "center",
 });
 
-globalStyle(`${toolbar} > *`, { marginRight: theme.vars.spacing.sm });
+globalStyle(`${toolbar} > *:not(:last-of-type)`, {
+  marginRight: theme.vars.spacing.sm,
+});

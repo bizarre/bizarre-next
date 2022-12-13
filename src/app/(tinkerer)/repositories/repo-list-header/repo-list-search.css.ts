@@ -9,6 +9,7 @@ export const input = style({
   outline: "none",
   borderRadius: "8px",
   border: "1px solid transparent",
+  flex: "1",
   transition: "border-color 0.1s",
   "::placeholder": {
     color: theme.vars.color.text.dim,
@@ -20,10 +21,14 @@ export const input = style({
     borderColor: theme.vars.color.text.dim,
   },
   fontSize: "1em",
+  minWidth: "100px",
 });
 
 export const container = style({
   position: "relative",
+  display: "flex",
+  flex: 1,
+  minWidth: "100px",
 });
 
 export const icon = style({

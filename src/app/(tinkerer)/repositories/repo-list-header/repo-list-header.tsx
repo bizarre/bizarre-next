@@ -6,6 +6,7 @@ import {
   getFilteredGitHubReposAndLanguages,
 } from "@/util/github";
 import config from "@/config";
+import { RepositoryListSort } from "./repo-list-sort";
 
 export const RepositoryListHeader = async ({
   query,
@@ -20,6 +21,7 @@ export const RepositoryListHeader = async ({
       <div className={styles.toolbar}>
         <RepositoryListSearch initialQuery={query} />
         <RepositoryListLanguageFilter selectedLanguages={selectedLanguages} />
+        <RepositoryListSort />
       </div>
     </header>
   );
