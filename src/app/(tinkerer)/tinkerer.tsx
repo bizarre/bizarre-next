@@ -73,7 +73,7 @@ export const TinkererPage = () => {
           const repository = repo.includes("/") ? repo.split("/")[1] : repo;
 
           return (
-            <LinkBlock key={repo} to={`repositories/${owner}/${repository}`}>
+            <LinkBlock key={repo} to={`/repositories/${owner}/${repository}`}>
               {/* @ts-expect-error Server Component */}
               <GithubRepoBlock owner={owner} repository={repository} />
             </LinkBlock>

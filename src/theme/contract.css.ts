@@ -18,6 +18,7 @@ export default createThemeContract({
       secondary: "",
       dim: "",
       link: "",
+      highlight: "",
     },
     skeleton: {
       1: "",

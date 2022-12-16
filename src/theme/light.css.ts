@@ -19,6 +19,7 @@ export default createTheme(vars, {
       secondary: "#968FA3",
       dim: "#B0ABBA",
       link: "#5687D1",
+      highlight: "",
     },
     skeleton: {
       1: "#CBC7D1",
