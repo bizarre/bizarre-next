@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { ThemeSwitcher } from "./theme-switcher/theme-switcher";
 import theme from "@/theme";
 import cs from "classnames";
+import { AnalyticsWrapper } from "./analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${styles.body} ${inter.className}`}>
         <ThemeSwitcher currentTheme={savedTheme} />
         {children}
+        <AnalyticsWrapper />
       </body>
     </html>
   );
