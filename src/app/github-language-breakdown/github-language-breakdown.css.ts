@@ -53,6 +53,7 @@ export const caption = style({
   "@media": {
     "screen and (max-width: 1024px)": {
       display: "grid",
+      gridGap: theme.vars.spacing.sm,
       gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
     },
   },
