@@ -49,7 +49,7 @@ export const caption = style({
   width: "100%",
   marginTop: theme.vars.spacing.sm,
   display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
 });
 
 export const languageLegendItem = style({
