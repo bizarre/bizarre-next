@@ -12,6 +12,7 @@ export const Dropdown = <T,>({
   minWidth,
   caret,
   renderCaret = true,
+  tabIndex,
 }: {
   onSelect: (value: T) => void;
   text: React.ReactNode;
@@ -19,6 +20,7 @@ export const Dropdown = <T,>({
   minWidth?: string;
   caret?: React.ReactNode;
   renderCaret?: boolean;
+  tabIndex?: number;
 }) => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -44,6 +46,7 @@ export const Dropdown = <T,>({
   return (
     <div className={styles.container}>
       <button
+        tabIndex={tabIndex}
         className={cs(styles.button, {
           [styles.buttonExpanded]: expanded,
           [styles.noCaret]: !renderCaret,

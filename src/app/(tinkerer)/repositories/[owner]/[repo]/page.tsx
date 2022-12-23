@@ -9,24 +9,31 @@ const getGithubRepositoryWithReadme = async (
   owner: string,
   repo: string
 ): Promise<[Repo, string]> => {
-  const response = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}`,
-    {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-      },
-    }
-  );
+  console.log(`https://api.github.com/repos/${owner}/${repo}`);
+  let response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    redirect: "manual",
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+    },
+  });
 
-  const readme = await fetch(
-    `https://api.github.com/repos/${owner}/${repo}/readme`,
-    {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-        Accept: "application/vnd.github.html",
-      },
+  if (response.status === 301 || response.status === 302) {
+    const location = response.headers.get("Location");
+    if (location) {
+      response = await fetch(location, {
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+        },
+      });
     }
-  );
+  }
+
+  const readme = await fetch(`${response.url}/readme`, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.html",
+    },
+  });
 
   return [await response.json(), await readme.text()];
 };

@@ -1,7 +1,7 @@
 import { createTheme } from "@vanilla-extract/css";
 import vars from "./contract.css";
 
-export default createTheme(vars, {
+export const _vars = {
   color: {
     contrast: "#000",
     blue: "#A4A8C1",
@@ -51,4 +51,6 @@ export default createTheme(vars, {
       xxl: "3em",
     },
   },
-});
+};
+
+export default createTheme(vars, _vars);

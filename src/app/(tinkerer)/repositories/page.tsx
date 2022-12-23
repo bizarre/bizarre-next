@@ -6,7 +6,7 @@ import Repositories from "./container";
 import { RepositoryContextWrapper } from "./context";
 import { RepositoryListPaginator } from "./repo-list/repo-list-paginator";
 
-export default async function Page({
+export default function Page({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] };

@@ -38,5 +38,4 @@ export const content = style({
   marginLeft: theme.vars.spacing.sm,
   paddingLeft: theme.vars.spacing.md,
   paddingTop: theme.vars.spacing.sm,
-  minHeight: "100px",
 });

@@ -23,6 +23,10 @@ export const button = style([
     ":active": {
       borderColor: theme.vars.color.text.dim,
     },
+    ":focus": {
+      borderColor: theme.vars.color.text.dim,
+      outline: "none",
+    },
   },
 ]);
 

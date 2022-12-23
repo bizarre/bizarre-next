@@ -21,14 +21,14 @@ export const input = style({
     borderColor: theme.vars.color.text.dim,
   },
   fontSize: "1em",
-  minWidth: "100px",
+  minWidth: "50px",
 });
 
 export const container = style({
   position: "relative",
   display: "flex",
   flex: 1,
-  minWidth: "100px",
+  minWidth: "50px",
 });
 
 export const icon = style({

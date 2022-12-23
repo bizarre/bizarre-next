@@ -63,10 +63,20 @@ export const selectedButtonContent = style({
   fontSize: "14px",
   minHeight: "17px",
   minWidth: "70px",
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      minWidth: "40px",
+    },
+  },
 });
 
 export const emptyButtonContent = style({
   minWidth: "70px",
   display: "block",
   textAlign: "left",
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      minWidth: "40px",
+    },
+  },
 });

@@ -19,8 +19,9 @@ export const itemIcon = style({
 });
 
 export const itemContent = style({
-  paddingTop: theme.vars.spacing.xs,
+  paddingTop: theme.vars.spacing.sm,
   paddingLeft: theme.vars.spacing.sm,
+  paddingBottom: theme.vars.spacing.md,
 });
 
 export const item = style({
@@ -31,9 +32,10 @@ export const itemHeading = style({
   color: theme.vars.color.text.highlight,
   fontWeight: "500",
   marginBottom: theme.vars.spacing.xs,
+  cursor: "default",
 });
 
-export const commitsBarContainer = style({
+export const extraContentContainer = style({
   width: "200px",
   marginLeft: "auto",
 });
@@ -46,6 +48,7 @@ export const commitsBar = style({
 
 export const commitsRepo = style({
   color: theme.vars.color.text.link,
+  fontWeight: 500,
   ":hover": {
     opacity: 0.75,
   },
@@ -54,6 +57,7 @@ export const commitsRepo = style({
 export const commitsSpan = style({
   marginLeft: theme.vars.spacing.sm,
   color: theme.vars.color.text.dim,
+  cursor: "default",
 });
 
 export const commit = style({

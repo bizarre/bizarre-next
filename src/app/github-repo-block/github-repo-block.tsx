@@ -106,7 +106,7 @@ export const GithubRepoBlockSkeleton = () => {
         </ul>
       </header>
       <summary className={styles.description}>
-        <Skeleton height="14px" width="350px"></Skeleton>
+        <Skeleton height="14px" width="100%"></Skeleton>
       </summary>
       <footer className={styles.footer}>
         <div className={styles.language.container}>

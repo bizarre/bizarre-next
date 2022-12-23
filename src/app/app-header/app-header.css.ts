@@ -29,6 +29,13 @@ export const header = styleVariants({
     top: 0,
     right: 0,
     display: "flex",
+    "@media": {
+      "screen and (max-width: 1024px)": {
+        left: 0,
+        transform: "translateY(-100%)",
+        top: `calc(${theme.vars.spacing.sm} * -1)`,
+      },
+    },
   },
   social: {
     marginLeft: theme.vars.spacing.xs,
@@ -36,6 +43,12 @@ export const header = styleVariants({
     transform: "translateZ(0)",
     ":hover": {
       opacity: 0.5,
+    },
+    "@media": {
+      "screen and (max-width: 1024px)": {
+        marginLeft: 0,
+        marginRight: theme.vars.spacing.xs,
+      },
     },
   },
 });

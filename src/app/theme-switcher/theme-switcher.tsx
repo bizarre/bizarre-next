@@ -15,6 +15,12 @@ export const ThemeSwitcher = ({ currentTheme }: Props) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
+  let theme = currentTheme;
+  if (!theme && typeof window !== "undefined") {
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
+    theme = query.matches ? "dark" : "light";
+  }
+
   return (
     <button
       className={cs(styles.button, { [styles.loading]: isPending })}
@@ -23,7 +29,7 @@ export const ThemeSwitcher = ({ currentTheme }: Props) => {
         fetch(`/api/theme`, {
           method: "POST",
           body: JSON.stringify({
-            theme: currentTheme === "dark" ? "light" : "dark",
+            theme: theme === "dark" ? "light" : "dark",
           }),
         }).then(() => {
           startTransition(() => {
@@ -32,7 +38,7 @@ export const ThemeSwitcher = ({ currentTheme }: Props) => {
         })
       }
     >
-      {currentTheme === "light" ? <SunIcon /> : <SunFullIcon />}
+      {theme === "light" ? <SunIcon /> : <SunFullIcon />}
     </button>
   );
 };

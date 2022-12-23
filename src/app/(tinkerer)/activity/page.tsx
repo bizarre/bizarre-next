@@ -11,7 +11,9 @@ export type GithubEvent = {
   created_at: Date;
   repo: {
     name: string;
+    id: number;
   };
+  payload: any;
 };
 
 const getXPublicGithubEvents = async (
@@ -98,15 +100,6 @@ export default async function Page() {
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>contribution activity </h1>
-      {/* <p>
-        {JSON.stringify([
-          ...new Set(
-            Object.keys(events).reduce((acc: any, v) => {
-              return [...acc, ...Object.keys(events[v])];
-            }, [])
-          ),
-        ])}
-      </p> */}
       {Object.keys(events).map((key) => {
         return (
           <>

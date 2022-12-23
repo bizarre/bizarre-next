@@ -24,7 +24,7 @@ export const button = style([
   theme.button.link,
   {
     color: theme.vars.color.text.secondary,
-    position: "fixed",
+    position: "absolute",
     right: theme.vars.spacing.xl,
     top: theme.vars.spacing.xl,
     selectors: {
@@ -34,5 +34,6 @@ export const button = style([
         transform: "scale(1.2)",
       },
     },
+    zIndex: 99,
   },
 ]);

@@ -9,14 +9,14 @@ export const markdown = style({
 globalStyle(`${markdown} h1`, {
   marginBottom: theme.vars.spacing.md,
   fontSize: theme.vars.text.size.lg,
-  fontWeight: 600,
+  fontWeight: 500,
   color: theme.vars.color.text.secondary,
 });
 
 globalStyle(`${markdown} h2`, {
   marginBottom: theme.vars.spacing.md,
   fontSize: theme.vars.text.size.md,
-  fontWeight: 600,
+  fontWeight: 500,
   color: theme.vars.color.text.secondary,
 });
 
@@ -26,6 +26,10 @@ globalStyle(`${markdown} svg.octicon-link`, {
 
 globalStyle(`${markdown} p`, {
   marginBottom: theme.vars.spacing.md,
+});
+
+globalStyle(`${markdown} h6`, {
+  marginBottom: theme.vars.spacing.sm,
 });
 
 globalStyle(`${markdown} blockquote`, {
