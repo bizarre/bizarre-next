@@ -48,8 +48,14 @@ export const label = style({
 export const caption = style({
   width: "100%",
   marginTop: theme.vars.spacing.sm,
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr",
+  display: "flex",
+  flexWrap: "wrap",
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
+    },
+  },
 });
 
 export const languageLegendItem = style({
@@ -79,6 +85,8 @@ export const languageBlob = style({
   display: "block",
   width: theme.vars.spacing.sm,
   height: theme.vars.spacing.sm,
+  minWidth: theme.vars.spacing.sm,
+  minHeight: theme.vars.spacing.sm,
   content: "",
   borderRadius: "50%",
   marginTop: "3px",
