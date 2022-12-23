@@ -8,6 +8,8 @@ By creating these mods, I was able to learn, rather early, a lot about the funda
 
 These mods that I built were part of an ecosystem of software that, all together, created a super unique experience within the game; an experience that players were willing to pay for. Towards the end of my modding era, I was leading a team of four engineers, building and maintaining software for a gaming product that grossed $2M+ per annum, all before graduating high school.
 
-When the COVID pandemic hit, I co-founded a startup with [my buddy](https://jonahseguin.com) to build the future of media consumption, socially & synchronously. (spoiler alert: it failed, but we're revisiting the core concept as an [open-source project](https://github.com/tsnaga/orbt) now!).
+When the COVID pandemic hit, I co-founded a startup with [my buddy](https://jonahseguin.com) to build the future of media consumption, socially & synchronously. (spoiler alert: it failed, but we're revisiting the core concept as an [open-source project](/repositories/tsanga/orbt) now!).
 
-After college, I joined the Retention Pod @ [Studio](https://studio.com), a learning startup, where I helped build creative profiles, chat, and tons of other cool shit.
+Most recently, I was an engineer on the Connect Pod @ [Studio](https://studio.com), a learning startup, where I helped build creative profiles, chat, (lots of backfilling), and tons of other cool shit with the most amazing team on this planet. <3
+
+Right now I'm exploring new opportunities and finding any and all reasons to dabble into cool tech for my personal projects. Please [shoot me an email](mailto:alex@bizar.re) if you've got any dope roles (or, alternatively, [DM me on Twitter](https://twitter.com/bizurre) where I shit post and meme).

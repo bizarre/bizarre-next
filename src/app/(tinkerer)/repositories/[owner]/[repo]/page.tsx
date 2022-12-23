@@ -9,7 +9,6 @@ const getGithubRepositoryWithReadme = async (
   owner: string,
   repo: string
 ): Promise<[Repo, string]> => {
-  console.log(`https://api.github.com/repos/${owner}/${repo}`);
   let response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
     redirect: "manual",
     headers: {

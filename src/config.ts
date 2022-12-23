@@ -2,7 +2,7 @@ const config = {
   name: "alex adewole",
   pseudonym: "bizarre",
   github: "bizarre",
-  repos: ["tsanga/orbt"],
+  repos: ["tsanga/orbt", "bizarre/rift"],
   tagline: "_________ in vancouver.",
   socials: {
     linkedin: "https://www.linkedin.com/in/alexadewole",

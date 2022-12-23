@@ -34,12 +34,6 @@ const getXPublicGithubEvents = async (
     }
   );
 
-  console.log(
-    `https://api.github.com/users/${owner}/events/public?page=${
-      _page + (page - 1) * 5
-    }&per_page=100}`
-  );
-
   const events = await response.json();
 
   if (events.length === 100 && _count < size) {
