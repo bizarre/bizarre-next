@@ -18,11 +18,9 @@ type Repo = {
 export const RepositoryList = async ({
   repos,
   page,
-  searchParams,
 }: {
   repos: Repo[];
   page: number;
-  searchParams: { [key: string]: string | string[] };
 }) => {
   const start = (page - 1) * PER_PAGE;
 
@@ -35,7 +33,11 @@ export const RepositoryList = async ({
             key={repo.full_name}
           >
             {/* @ts-expect-error Server Component */}
-            <GithubRepoBlock owner={repo.owner.login} repository={repo.name} />
+            <GithubRepoBlock
+              owner={repo.owner.login}
+              repository={repo.name}
+              loadedRepository={repo}
+            />
           </LinkBlock>
         );
       })}
