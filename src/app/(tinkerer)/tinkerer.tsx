@@ -58,7 +58,7 @@ export const TinkererPage = () => {
           </>
         }
       >
-        <LinkBlock to="/repositories" refresh={true}>
+        <LinkBlock to="/repositories">
           <ErrorBoundary fallback={<GithubLanguageBreakdownSkeleton />}>
             {/* @ts-expect-error Server Component */}
             <GithubLanguageBreakdown username={config.github} />

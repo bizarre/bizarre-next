@@ -23,6 +23,7 @@
     "eslint-config-next": "13.0.6",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
+    "memory-cache": "^0.2.0",
     "next": "13.0.7-canary.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
+    "@types/memory-cache": "^0.2.2",
     "@vanilla-extract/next-plugin": "^2.1.1",
     "@vanilla-extract/webpack-plugin": "^2.2.0",
     "patch-package": "^6.5.0",

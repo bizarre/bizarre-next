@@ -6,7 +6,7 @@ import { RepoContext } from "../context";
 import * as styles from "./repo-list-paginator.css";
 import cs from "classnames";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SpinnerIcon from "@/assets/icon/spinner.svg";
 
 export const RepositoryListPaginator = ({
@@ -19,8 +19,10 @@ export const RepositoryListPaginator = ({
   const [loadingPage, setLoadingPage] = useState<number | null>(null);
   const [, startTransition] = useTransition();
   const router = useRouter();
+  const original = getChainedURLSearchParams(searchParams || {});
   const params = getChainedURLSearchParams(searchParams || {});
   const { pageCount } = useContext(RepoContext)!!;
+  const pathname = usePathname();
 
   return (
     <footer className={styles.pageButtons}>
@@ -48,7 +50,12 @@ export const RepositoryListPaginator = ({
                   params.append("page", `${i + 1}`);
                 }
 
-                router.push(`/repositories?${params.toString()}`);
+                router.push(`${pathname}?${params.toString()}`);
+
+                if (i === 0) {
+                  router.refresh();
+                }
+
                 setLoadingPage(null);
               });
             }}

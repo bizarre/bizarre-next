@@ -10,6 +10,7 @@ const fetchGithubLanguageBreakdown = async (
   username: string,
   fetchCount: number
 ): Promise<{ language: string; percentage: number }[]> => {
+  console.log("fetching");
   const response = await fetch(
     `${
       process.env.NEXT_PUBLIC_API_URL
@@ -20,6 +21,8 @@ const fetchGithubLanguageBreakdown = async (
       next: { revalidate: Infinity },
     }
   );
+
+  console.log("fetched");
 
   return await response.json();
 };

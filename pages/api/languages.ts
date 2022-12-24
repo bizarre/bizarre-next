@@ -1,5 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import cache from "memory-cache";
+
 const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 type Data = { language: string; percentage: number }[];
@@ -18,8 +20,14 @@ export default async function handler(
     res.status(400).json({ error: "Missing username" });
     return;
   }
-
   const count = req.query?.count || 50;
+
+  const cached = cache.get({ username, count });
+  if (cached) {
+    res.status(200).json(cached);
+    return;
+  }
+
   const languageFilter = req.query.languageFilter || [];
 
   const response = await fetch(
@@ -69,6 +77,8 @@ export default async function handler(
       return acc;
     }, [] as { language: string; percentage: number }[])
     .sort((a, b) => b.percentage - a.percentage);
+
+  cache.put({ username, count }, toReturn, 1000 * 60 * 60);
 
   res.status(200).json(toReturn);
 }

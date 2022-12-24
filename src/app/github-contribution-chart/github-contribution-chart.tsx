@@ -20,8 +20,9 @@ const getLastDayOfCurrentWeek = () => {
 const fetchGithubContributions = async (
   username: string,
   days = 52 * 7,
-  from = getLastDayOfCurrentWeek()
+  from = getLastDayOfCurrentWeek()  
 ): Promise<[{ intensity: Intensity; date: Date }[], number]> => {
+
   const response = await fetch(
     `https://ghcc-bzr.vercel.app/api/v1/${username}`
   );
