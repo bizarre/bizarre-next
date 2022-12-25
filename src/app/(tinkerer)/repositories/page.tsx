@@ -1,4 +1,5 @@
 import * as styles from "./page.css";
+import * as _ from "./repo-list-header/repo-list-search.css";
 import { RepositoryListHeader } from "./repo-list-header/repo-list-header";
 import { RepositoryListSkeleton } from "./repo-list/repo-list";
 import { Suspense } from "react";
