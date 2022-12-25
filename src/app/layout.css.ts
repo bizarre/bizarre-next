@@ -10,14 +10,14 @@ export const body = style([
   },
 ]);
 
-globalStyle("#search", {
+export const container = style({
   position: "relative",
   display: "flex",
   flex: 1,
   minWidth: "50px",
 });
 
-globalStyle("#search > span", {
+export const icon = style({
   position: "absolute",
   left: theme.vars.spacing.md,
   top: "50%",
@@ -27,14 +27,14 @@ globalStyle("#search > span", {
   transform: "translate(-25%, -50%)",
 });
 
-globalStyle("#search svg[role='spin']", {
+export const spinner = style({
   animationName: theme.spin,
   animationDuration: "1s",
   animationIterationCount: "infinite",
   animationTimingFunction: "linear",
 });
 
-globalStyle("#search input", {
+export const input = style({
   background: theme.vars.color.background.dark,
   padding: theme.vars.spacing.sm,
   paddingLeft: theme.vars.spacing.lg,
@@ -44,6 +44,15 @@ globalStyle("#search input", {
   border: "1px solid transparent",
   flex: "1",
   transition: "border-color 0.1s",
+  "::placeholder": {
+    color: theme.vars.color.text.dim,
+  },
+  ":hover": {
+    borderColor: theme.vars.color.background.dim,
+  },
+  ":focus": {
+    borderColor: theme.vars.color.text.dim,
+  },
   fontSize: "1em",
   minWidth: "50px",
 });

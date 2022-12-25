@@ -1,15 +1,11 @@
 "use client";
 
-import * as styles from "./repo-list-search.css";
+import * as styles from "@/app/layout.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 import SearchIcon from "@/assets/icon/search.svg";
 import SpinnerIcon from "@/assets/icon/spinner.svg";
 import { getChainedURLSearchParams } from "@/util/util";
-
-/*
-  The styles for this component live as `globalStyle`'s in /src/app/layout.css.ts.
-*/
 
 export const RepositoryListSearch = ({
   initialQuery,
@@ -34,17 +30,17 @@ export const RepositoryListSearch = ({
   };
 
   return (
-    <div id="search">
-      <span>
+    <div className={styles.container}>
+      <span className={styles.icon}>
         {isPending ? (
-          <SpinnerIcon width="1em" height="1em" role="spin" />
+          <SpinnerIcon width="1em" height="1em" className={styles.spinner} />
         ) : (
           <SearchIcon width="1em" height="1em" />
         )}
       </span>
       <input
-        className={styles.input}
         type={"search"}
+        className={styles.input}
         placeholder="Search..."
         value={search}
         onChange={(e) => onChange(e.target.value)}
