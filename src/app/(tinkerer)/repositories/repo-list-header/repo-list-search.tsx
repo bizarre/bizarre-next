@@ -39,6 +39,7 @@ export const RepositoryListSearch = ({
         )}
       </span>
       <input
+        type={"search"}
         className={styles.input}
         placeholder="Search..."
         value={search}

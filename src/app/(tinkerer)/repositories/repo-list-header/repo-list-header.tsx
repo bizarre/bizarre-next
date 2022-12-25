@@ -1,11 +1,6 @@
 import * as styles from "./repo-list-header.css";
 import { RepositoryListLanguageFilter } from "./repo-list-language-filter";
 import { RepositoryListSearch } from "./repo-list-search";
-import {
-  fetchAllGithubRepositories,
-  getFilteredGitHubReposAndLanguages,
-} from "@/util/github";
-import config from "@/config";
 import { RepositoryListSort } from "./repo-list-sort";
 
 export const RepositoryListHeader = async ({
