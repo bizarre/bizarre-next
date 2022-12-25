@@ -1,6 +1,6 @@
 "use client";
 
-import * as styles from "./repo-list-search.css";
+import * as styles from "./repo-list-header.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 import SearchIcon from "@/assets/icon/search.svg";
@@ -30,21 +30,17 @@ export const RepositoryListSearch = ({
   };
 
   return (
-    <div className={styles.searchContainer}>
-      <span className={styles.searchIcon}>
+    <div className={styles.container}>
+      <span className={styles.icon}>
         {isPending ? (
-          <SpinnerIcon
-            width="1em"
-            height="1em"
-            className={styles.searchSpinner}
-          />
+          <SpinnerIcon width="1em" height="1em" className={styles.spinner} />
         ) : (
           <SearchIcon width="1em" height="1em" />
         )}
       </span>
       <input
         type={"search"}
-        className={styles.searchInput}
+        className={styles.input}
         placeholder="Search..."
         value={search}
         onChange={(e) => onChange(e.target.value)}
