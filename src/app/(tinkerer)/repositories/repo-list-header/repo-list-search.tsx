@@ -6,6 +6,7 @@ import { useState, useTransition } from "react";
 import SearchIcon from "@/assets/icon/search.svg";
 import SpinnerIcon from "@/assets/icon/spinner.svg";
 import { getChainedURLSearchParams } from "@/util/util";
+import { input } from "./repo-list-header.css";
 
 export const RepositoryListSearch = ({
   initialQuery,
@@ -39,7 +40,7 @@ export const RepositoryListSearch = ({
         )}
       </span>
       <input
-        className={styles.input}
+        className={input}
         placeholder="Search..."
         value={search}
         onChange={(e) => onChange(e.target.value)}
