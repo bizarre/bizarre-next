@@ -30,17 +30,21 @@ export const RepositoryListSearch = ({
   };
 
   return (
-    <div className={styles.container}>
-      <span className={styles.icon}>
+    <div className={styles.searchContainer}>
+      <span className={styles.searchIcon}>
         {isPending ? (
-          <SpinnerIcon width="1em" height="1em" className={styles.spinner} />
+          <SpinnerIcon
+            width="1em"
+            height="1em"
+            className={styles.searchSpinner}
+          />
         ) : (
           <SearchIcon width="1em" height="1em" />
         )}
       </span>
       <input
         type={"search"}
-        className={styles.input}
+        className={styles.searchInput}
         placeholder="Search..."
         value={search}
         onChange={(e) => onChange(e.target.value)}

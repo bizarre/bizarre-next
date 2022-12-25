@@ -1,14 +1,14 @@
 import { globalStyle, keyframes, style } from "@vanilla-extract/css";
 import theme from "@/theme";
 
-export const container = style({
+export const searchContainer = style({
   position: "relative",
   display: "flex",
   flex: 1,
   minWidth: "50px",
 });
 
-export const icon = style({
+export const searchIcon = style({
   position: "absolute",
   left: theme.vars.spacing.md,
   top: "50%",
@@ -18,14 +18,14 @@ export const icon = style({
   transform: "translate(-25%, -50%)",
 });
 
-export const spinner = style({
+export const searchSpinner = style({
   animationName: theme.spin,
   animationDuration: "1s",
   animationIterationCount: "infinite",
   animationTimingFunction: "linear",
 });
 
-export const input = style({
+export const searchInput = style({
   "::placeholder": {
     color: theme.vars.color.text.dim,
   },
