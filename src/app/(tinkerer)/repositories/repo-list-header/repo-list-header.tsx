@@ -10,6 +10,7 @@ export const RepositoryListHeader = async ({
   query: string;
   selectedLanguages: string[];
 }) => {
+  let _ = [styles.icon, styles.container, styles.input];
   return (
     <header>
       <h1 className={styles.heading}>open source repositories</h1>
