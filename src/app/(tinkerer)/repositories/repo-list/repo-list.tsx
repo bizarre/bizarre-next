@@ -50,7 +50,7 @@ export const RepositoryListSkeleton = () => {
     <div>
       {[...Array(PER_PAGE)].map((_, i) => {
         return (
-          <LinkBlock to="#" key={i} ready={false}>
+          <LinkBlock to="#" key={`${i}-repo-link-skeleton`} ready={false}>
             <GithubRepoBlockSkeleton />
           </LinkBlock>
         );

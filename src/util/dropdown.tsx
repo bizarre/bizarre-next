@@ -61,7 +61,7 @@ export const Dropdown = <T,>({
       </button>
       <div
         className={cs(styles.dropdown, { [styles.hidden]: !expanded })}
-        style={{ minWidth }}
+        style={{ minWidth, opacity: expanded ? 1 : 0 }}
         ref={ref}
       >
         {options.map(({ element, value, key }) => (

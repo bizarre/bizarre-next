@@ -66,10 +66,14 @@ export const RepositoryLanguageButtonContent = ({
       {selectedLanguages.map((i) => {
         const color = languageColors[i] || theme.vars.color.text.dim;
         return modifying.includes(i) ? (
-          <SpinnerIcon key={i} className={styles.spinner} style={{ color }} />
+          <SpinnerIcon
+            key={`${i}-lang-spinner`}
+            className={styles.spinner}
+            style={{ color }}
+          />
         ) : (
           <li
-            key={i}
+            key={`${i}-lang`}
             className={styles.blob}
             style={{ background: languageColors[i] }}
           ></li>

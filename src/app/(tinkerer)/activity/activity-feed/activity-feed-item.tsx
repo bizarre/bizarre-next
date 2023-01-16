@@ -101,15 +101,19 @@ const CreateActivityFeedItem = ({
 }) => {
   const [languageMap, setLanguageMap] = useState({} as Record<string, string>);
 
-  const repos = activities
-    .filter((i) => !i.payload.ref && i.payload.ref_type === "repository")
-    .map((i) => {
-      return {
-        name: i.repo.name,
-        createdAt: new Date(i.created_at),
-        id: i.repo.id,
-      };
-    });
+  const repos = useMemo(
+    () =>
+      activities
+        .filter((i) => !i.payload.ref && i.payload.ref_type === "repository")
+        .map((i) => {
+          return {
+            name: i.repo.name,
+            createdAt: new Date(i.created_at),
+            id: i.repo.id,
+          };
+        }),
+    [activities]
+  );
 
   useEffect(() => {
     const getLanguages = async () => {
@@ -141,7 +145,7 @@ const CreateActivityFeedItem = ({
         <div>
           {repos.map(({ name, createdAt }) => {
             return (
-              <div key={`${name}`} className={styles.commit}>
+              <div key={`${name}-create-activity`} className={styles.commit}>
                 <Link
                   className={styles.commitsRepo}
                   href={`/repositories/${name}`}
@@ -202,7 +206,7 @@ const ForkActivityFeedItem = ({
         <div>
           {reposNames.map((repoName) => {
             return (
-              <div key={`${repoName}`} className={styles.commit}>
+              <div key={`${repoName}-fork-activity`} className={styles.commit}>
                 <Link
                   className={styles.commitsRepo}
                   href={`/repositories/${config.github}/${
@@ -253,7 +257,7 @@ const StarActivityFeedItem = ({
         <div>
           {reposNames.map((repoName) => {
             return (
-              <div key={`${repoName}`} className={styles.commit}>
+              <div key={`${repoName}-star-activity`} className={styles.commit}>
                 <Link
                   className={styles.commitsRepo}
                   href={`/repositories/${repoName}`}
