@@ -12,7 +12,7 @@ export const _vars = {
       dim: "#DAD8DF",
       dark: "#D8D5DD",
       menu: "#D8D5DD",
-      pre: "#111014",
+      pre: "#DBD8DF",
     },
     text: {
       primary: "#635C70",

@@ -28,6 +28,7 @@ export const header = styleVariants({
     position: "absolute",
     top: 0,
     right: 0,
+    alignItems: "center",
     display: "flex",
     "@media": {
       "screen and (max-width: 1024px)": {
@@ -50,5 +51,12 @@ export const header = styleVariants({
         marginRight: theme.vars.spacing.xs,
       },
     },
+  },
+  cv: {
+    color: theme.vars.color.text.secondary,
+    fontSize: theme.vars.text.size.sm,
+    marginLeft: theme.vars.spacing.xs,
+    textDecoration: "none",
+    fontWeight: 500,
   },
 });

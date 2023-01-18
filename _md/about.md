@@ -1,15 +1,29 @@
 # about me
 
-Hey! I'm Alex! I'm a 22 year old software engineer currently based in beautiful [Vancouver, British Columbia](https://vancouver.ca).
+Hey there! I'm Alex, a ~~software engineer~~ wizard based in [Vancouver, BC]().
 
-I started writing code at a super young age by creating mods for games like [Minecraft](https://minecraft.net)!
+---
 
-As time went on, the kind of mods I built got more and more complex. Instead of just adding a new entity or item to the game, I was building a distributed FIFO queue over [RabbitMQ](https://www.rabbitmq.com) to facilitate users connecting while the server was full, or a pseudo recorder/player that would capture packets at the network layer so that administrators could play back a 1:1 replay of events for moderation.
+###### Tinkerer
 
-These mods that I built were part of an ecosystem of software that, all together, created a super unique experience within the game; an experience that players were willing to pay for. Towards the end of my modding era, I was leading a team of four engineers, building and maintaining software for a gaming product that grossed $2M+ per annum, all before graduating high school.
+I'm interested in open source, decentralization, and rust.
 
-When the COVID pandemic hit, I co-founded a startup with [my buddy](https://jonahseguin.com) to build the future of media consumption, socially & synchronously. (spoiler alert: it failed, but we're revisiting the core concept as an [open-source project](/repositories/tsanga/orbt) now!).
+I was most recently an engineer at [Studio](https://studio.com), a learning startup, where I helped ship `chat` and `creative profiles`.
 
-Most recently, I was an engineer on the Connect Pod @ [Studio](https://studio.com), a learning startup, where I helped build creative profiles, chat, (lots of backfilling), and tons of other cool shit with the most amazing team on this planet. <3
+I co-founded a startup at the beginning of the [COVID-19 pandemic](https://en.wikipedia.org/wiki/COVID-19_pandemic) in an attempt to redefine movie night. _The startup ultimately didn't succeed, but we're revisiting the core concept as an [open source project](/repositories/tsanga/orbt) now!_
 
-Currently, I'm exploring new opportunities and finding any and all reasons to dabble into cool tech for my personal projects. Please [shoot me an email](mailto:alex@bizar.re) if you've got any dope roles (or, alternatively, [DM me on Twitter](https://twitter.com/bizurre) where I shit post and meme).
+---
+
+###### Photography
+
+I have been shooting photography as a hobby for the past five years. I currently rock a [Sony α7 III](https://en.wikipedia.org/wiki/Sony_α7_III) and a couple Sigma primes.
+
+I'm interested in experimental photography, but you'll typically catch me shooting basic street photography in downtown Vancouver.
+
+---
+
+###### Music
+
+I have been trying to teach myself guitar for a _very_ long time. I love playing blues and jazzy riffs, and I find myself skipping over the basics just so I can try to learn a riff to a song I really like.
+
+I've been dabbling into music production over the past few years and I ocasionally share some stuff on my [SoundCloud](https://soundcloud.com/bizar-re).

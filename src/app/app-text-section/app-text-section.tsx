@@ -4,13 +4,16 @@ export const TextSection = ({
   children,
   title,
 }: {
-  children: React.ReactNode;
+  children: string;
   title?: string;
 }) => {
   return (
     <section className={styles.section}>
       {title && <h2 className={styles.title}>{title}</h2>}
-      <p className={styles.paragraph}>{children}</p>
+      <p
+        className={styles.paragraph}
+        dangerouslySetInnerHTML={{ __html: children }}
+      ></p>
     </section>
   );
 };

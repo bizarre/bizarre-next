@@ -2,7 +2,7 @@ const config = {
   name: "alex adewole",
   pseudonym: "bizarre",
   github: "bizarre",
-  repos: ["tsanga/orbt", "bizarre/rift"],
+  repos: ["tsanga/orbt", "tsanga/musty"],
   tagline: "_________ in vancouver.",
   socials: {
     linkedin: "https://www.linkedin.com/in/alexadewole",
@@ -10,9 +10,10 @@ const config = {
     twitter: "https://twitter.com/bizurre",
   },
   about: {
-    tech: "started programming when i was like 10 cuz my dad wouldnt buy me the robux i needed to get my roblox dude some sneakers so i learned lua and wrote them fuckers in",
+    tech: "Passionate about open source, digital photography, and the intersection of technology and art. If programming is magic, then software engineers are wizards.",
   },
-  resume: "https://www.dropbox.com/s/e9xc9o0glkvlqod/Alex_Adewole_Software_Engineer.pdf?dl=0"
+  resume:
+    "https://www.dropbox.com/s/e9xc9o0glkvlqod/Alex_Adewole_Software_Engineer.pdf?dl=0",
 };
 
 export const _app_defs = {

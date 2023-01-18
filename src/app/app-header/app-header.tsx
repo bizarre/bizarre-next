@@ -4,7 +4,9 @@ import Link from "next/link";
 import GithubIcon from "@/assets/icon/github.svg";
 import TwitterIcon from "@/assets/icon/twitter.svg";
 import LinkedInIcon from "@/assets/icon/linkedin-square.svg";
+import NewspaperIcon from "@/assets/icon/newspaper.svg";
 import theme from "@/theme";
+import config from "@/config";
 
 type Social = "github" | "twitter" | "linkedin";
 
@@ -29,6 +31,16 @@ export const Header = ({
       <PageSelector pages={pages} />
 
       <ul className={styles.header.socialContainer}>
+        {config.resume && (
+          <Link
+            className={styles.header.social}
+            href={config.resume}
+            target="_blank"
+          >
+            <NewspaperIcon style={{ color: theme.vars.color.text.dim }} />
+          </Link>
+        )}
+
         {Object.entries(socials).map(([name, url]) => {
           let content;
           switch (name) {

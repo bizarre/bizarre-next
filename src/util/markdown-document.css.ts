@@ -24,12 +24,33 @@ globalStyle(`${markdown} svg.octicon-link`, {
   display: "none",
 });
 
+globalStyle(`${markdown} strong`, {
+  fontWeight: "500",
+});
+
+globalStyle(`${markdown} em`, {
+  fontStyle: "italic",
+  opacity: 0.8,
+});
+
+globalStyle(`${markdown} del`, {
+  opacity: 0.66,
+});
+
 globalStyle(`${markdown} p`, {
   marginBottom: theme.vars.spacing.md,
 });
 
 globalStyle(`${markdown} h6`, {
-  marginBottom: theme.vars.spacing.sm,
+  marginBottom: theme.vars.spacing.xs,
+  fontWeight: 600,
+  color: theme.vars.color.text.dim,
+  opacity: 0.5,
+  textTransform: "uppercase",
+  letterSpacing: "0.1em",
+  fontSize: "0.8em",
+  userSelect: "none",
+  cursor: "default",
 });
 
 globalStyle(`${markdown} blockquote`, {
@@ -81,4 +102,24 @@ globalStyle(`${markdown} pre`, {
   color: theme.vars.color.text.secondary,
   fontFamily: "monospace",
   overflowX: "scroll",
+});
+
+globalStyle(`${markdown} code`, {
+  background: theme.vars.color.background.pre,
+  padding: theme.vars.spacing.xs,
+  paddingLeft: theme.vars.spacing.xs,
+  paddingRight: theme.vars.spacing.xs,
+  borderRadius: "8px",
+  marginBottom: theme.vars.spacing.md,
+  color: theme.vars.color.text.secondary,
+  fontFamily: "monospace",
+  overflowX: "scroll",
+});
+
+globalStyle(`${markdown} hr`, {
+  border: "none",
+  borderBottom: "1.5px solid",
+  borderColor: theme.vars.color.text.dim,
+  borderRadius: 0,
+  opacity: 0.66,
 });
