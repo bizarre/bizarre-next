@@ -8,7 +8,8 @@ Hey there! I'm Alex, a ~~software engineer~~ wizard based in [Vancouver, BC]().
 
 I'm interested in open source, decentralization, and rust.
 
-I was most recently an engineer at [Studio](https://studio.com), a learning startup, where I helped ship `chat` and `creative profiles`.
+_now:_ sr. eng [@hive](https://hive.co) 🐝 - building event-marketing power-ups 💪🏽  
+_prev:_ eng [@studio](https://studio.com) Ⓜ️ - making creative fufillment attainable for everyone 🙌🏽
 
 I co-founded a startup at the beginning of the [COVID-19 pandemic](https://en.wikipedia.org/wiki/COVID-19_pandemic) in an attempt to redefine movie night. _The startup ultimately didn't succeed, but we're revisiting the core concept as an [open source project](/repositories/tsanga/orbt) now!_
 
