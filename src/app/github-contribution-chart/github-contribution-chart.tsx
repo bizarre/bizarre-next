@@ -24,7 +24,7 @@ const fetchGithubContributions = async (
 ): Promise<[{ intensity: Intensity; date: Date }[], number]> => {
 
   const response = await fetch(
-    `https://ghcc-bzr.vercel.app/api/v1/${username}`
+    `https://github-contributions.vercel.app/api/v1/${username}`
   );
   const data = await response.json();
 
