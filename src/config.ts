@@ -7,7 +7,7 @@ const config = {
   socials: {
     linkedin: "https://www.linkedin.com/in/alexadewole",
     github: "https://github.com/bizarre",
-    twitter: "https://twitter.com/bizurre",
+    twitter: "https://twitter.com/a16e_",
   },
   about: {
     tech: "Passionate about open source, digital photography, and the intersection of technology and art. If programming is magic, then software engineers are wizards.",
