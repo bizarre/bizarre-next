@@ -39,7 +39,7 @@ const fetchGithubContributions = async (
     const item = contributions[offset + i];
 
     toReturn.push({
-      intensity: parseInt(item.intensity) as Intensity,
+      intensity: parseInt(item?.intensity || "0") as Intensity,
       date: new Date(item.date),
     });
     count += item.count;
