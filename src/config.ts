@@ -24,4 +24,4 @@ export const _app_defs = {
   language_filter: [],
 };
 
-export default config;
+export default config
